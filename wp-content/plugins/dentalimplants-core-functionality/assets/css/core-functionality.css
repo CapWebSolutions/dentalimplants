@@ -1,0 +1,22 @@
+.site-footer .footer-alignleft {
+	float: left;
+	text-align: left;
+	margin-left: 10%;
+	/* margin-left: 80px; */
+}
+
+.site-footer .footer-alignright {
+	float: right;
+	text-align: right;
+	margin-right: 10%;
+	/* margin-right: 80px; */
+}
+
+@media only screen and (max-width: 800) {
+	.footer-alignleft,
+	.footer-alignright {
+		width: 100%;
+		margin: 0 auto;
+	}
+}
+
