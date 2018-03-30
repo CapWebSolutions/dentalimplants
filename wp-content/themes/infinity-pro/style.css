@@ -632,7 +632,8 @@ th:first-child {
 .site-inner {
 	clear: both;
 	margin: 73px auto 0;
-	max-width: 1280px;
+	/* max-width: 1280px; */
+	max-width: 1600px;
 	word-wrap: break-word;
 }
 
@@ -812,7 +813,7 @@ th:first-child {
 
 .search-form:before {
 	color: #999;
-	content: "\f4a5";
+	/* content: "\f4a5"; */
 	font-family: "ionicons";
 	font-size: 20px;
 	left: 15px;
@@ -1085,6 +1086,54 @@ img.alignright,
 	padding-top: 30px;
 }
 
+.footer-widget-area .footer-phone-block {
+	border-top: 2px solid black;
+	border-bottom: 2px solid black;
+	padding: 5px 0;
+	font-weight: 700;
+}
+
+.footer-widget-area .footer-phone-block p {
+	margin-bottom: 0;
+	font-weight: 700;
+}
+
+.footer-phone > a,
+#custom_html-27 > div > div > div > a {
+	font-weight: 700;
+	font-size: 34px;
+	font-size: 3.4rem;
+}
+
+.footer-widget-area #nav_menu-4 .menu-item {
+	display: inline-block;
+	margin-bottom: 0;
+	padding-bottom: 0;
+	text-align: left;
+	border-right: 1px solid grey;
+	padding-right: 5px;
+}
+.footer-widget-area #nav_menu-4 .menu-item:last-child {
+	border-right: 0;
+}
+
+.footer-widget-area #nav_menu-4 {
+	margin-bottom: 0;
+}
+.footer-widget-area #nav_menu-2 a, 
+.footer-widget-area #nav_menu-3 a,
+.footer-widget-area #nav_menu-4 a {
+	font-weight: 600;
+	font-size: 18px;
+}
+
+.footer-widget-area #nav_menu-2 a, 
+.footer-widget-area #nav_menu-3 a {
+	text-transform: capitalize;
+} 
+.footer-widget-area #nav_menu-4 a {
+	text-transform: uppercase;
+}
 
 /* Plugins
 ---------------------------------------------------------------------------------------------------- */
@@ -1719,7 +1768,8 @@ p.entry-meta {
 
 .footer-widgets .wrap {
 	margin: 0 auto;
-	max-width: 1280px;
+	/* max-width: 1280px; */
+	max-width: 1600px;
 	padding-left: 60px;
 	padding-right: 60px;
 }
@@ -1747,6 +1797,13 @@ p.entry-meta {
 	/* padding-left: 4%;
 	padding-right: 4%;
 	width: 40%; */
+}
+
+.footer-widgets-1 #menu-item-4158 > a {
+	background-color: red;
+	color: white;
+	padding: 0 15px;
+	border-radius: 25px;
 }
 
 .footer-widgets p {
@@ -1789,7 +1846,8 @@ p.entry-meta {
 
 .site-footer .wrap {
 	margin: 0 auto;
-	max-width: 1280px;
+	/* max-width: 1280px; */
+	max-width: 1600px;
 	padding-left: 60px;
 	padding-right: 60px;
 }
@@ -1844,6 +1902,117 @@ p.entry-meta {
 @-o-keyframes fadein {
 	from { opacity: 0; }
 	to   { opacity: 1; }
+}
+
+/* Adding primary nav search icon and associated functionality 
+ * ref: https://sridharkatakam.com/header-search-in-genesis/
+ */
+
+.site-header > .wrap {
+    position: relative;
+}
+
+.menu-toggle {
+    margin: 10px 30px 0 auto;
+}
+
+.header-search-wrap {
+    display: none;
+}
+
+.js .header-search-wrap {
+    position: absolute;
+    z-index: 1001; /* Show above the menu toggle button */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-transition: none;
+    transition: none;
+    -webkit-transform: translate3d(0,-100%,0);
+    transform: translate3d(0,-100%,0);
+}
+
+.js .header-search-wrap .search-form,
+.js .header-search-wrap input[type="search"] {
+    height: 100%;
+}
+
+.search-visible .header-search-wrap {
+    -webkit-transform: translate3d(0,0,0);
+    transform: translate3d(0,0,0);
+}
+
+.header-search-wrap:target {
+    display: block;
+    clear: both;
+    position: relative;
+}
+
+.header-search-wrap input[type="search"] {
+    padding: 0;
+    border: 0;
+}
+
+.header-search-wrap input[type="submit"]:focus {
+    right: 50px;
+    margin-top: 1px;
+    padding: 20px;
+    border-radius: 3px;
+}
+
+.js .toggle-header-search.close:focus {
+    outline: 0;
+}
+
+.toggle-header-search.close {
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 100%;
+    padding: 0;
+    color: #000;
+    -webkit-transition: -webkit-transform 0.2s ease-in-out;
+    transition: -webkit-transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out;
+    transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+    -webkit-transform: translate3d(-6px,0,0);
+    transform: translate3d(-6px,0,0);
+}
+
+/* Add a red box around a whit esearch icon */
+body > div.site-container > header > div > a > span.ionicons.ion-ios-search {
+	background-color: red;
+	color: white;
+	padding: 5px;
+}
+
+.header-search-wrap:target .toggle-header-search.close {
+    -webkit-transform: none;
+    transform: none;
+}
+
+.toggle-header-search .ionicons {
+    font-size: 12px;
+    font-size: 1.2rem;
+    -webkit-transform: scale(2);
+    transform: scale(2);
+}
+
+.toggle-header-search.close .ionicons {
+    position: absolute;
+    top: calc(50% - 5px);
+    right: 0;
+    -webkit-transform: scale(3);
+    transform: scale(3);
+}
+
+.toggle-header-search {
+    position: absolute;
+    right: 25px;
+    top: 20px;
 }
 
 
@@ -2088,6 +2257,43 @@ p.entry-meta {
 	.site-footer .genesis-nav-menu a {
 		padding-left: 10px;
 		padding-right: 10px;
+	}
+
+
+		/* Header Search
+	--------------------------------------------- */
+
+	.site-header > .wrap {
+		display: -webkit-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-pack: justify;
+			-ms-flex-pack: justify;
+				justify-content: space-between;
+		-webkit-box-align: center;
+			-ms-flex-align: center;
+				align-items: center;
+		position: relative;
+	}
+
+	.title-area,
+	.nav-primary {
+		float: none;
+	}
+
+	.nav-primary {
+		-webkit-box-flex: 1;
+			-ms-flex: 1;
+				flex: 1;
+		text-align: right;
+	}
+
+	.toggle-header-search {
+		position: static;
+		display: block;
+		padding: 12px 15px;
+		line-height: 1;
+		margin-left: 20px;
 	}
 
 }

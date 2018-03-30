@@ -1,8 +1,9 @@
 .site-footer .footer-alignleft {
 	float: left;
 	text-align: left;
-	margin-left: 10%;
+	/* margin-left: 10%; */
 	/* margin-left: 80px; */
+	font-size: 16px;
 }
 
 .site-footer .footer-alignright {
@@ -10,6 +11,7 @@
 	text-align: right;
 	margin-right: 10%;
 	/* margin-right: 80px; */
+	font-size: 16px;
 }
 
 @media only screen and (max-width: 800) {

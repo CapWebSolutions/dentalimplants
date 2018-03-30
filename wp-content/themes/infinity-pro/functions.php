@@ -62,6 +62,13 @@ function infinity_enqueue_scripts_styles() {
 		'genesis_responsive_menu',
 		infinity_responsive_menu_settings()
 	);
+	wp_enqueue_script(
+		'infinity-search-bar',
+		get_stylesheet_directory_uri() . '/js/infinity-search-bar.js',
+		array( 'jquery' ),
+		CHILD_THEME_VERSION,
+		true
+	);
 
 }
 
@@ -154,7 +161,7 @@ remove_action( 'genesis_after_header', 'genesis_do_subnav' );
 add_action( 'genesis_footer', 'genesis_do_subnav', 5 );
 
 // Add offscreen content if active.
-add_action( 'genesis_after_header', 'infinity_offscreen_content_output' );
+// add_action( 'genesis_after_header', 'infinity_offscreen_content_output' );
 function infinity_offscreen_content_output() {
 
 	$button = '<button class="offscreen-content-toggle"><i class="icon ion-ios-close-empty"></i> <span class="screen-reader-text">' . __( 'Hide Offscreen Content', 'infinity-pro' ) . '</span></button>';
@@ -286,3 +293,48 @@ genesis_register_sidebar( array(
 	'description' => __( 'This is the offscreen content section.', 'infinity-pro' ),
 ) );
 
+add_action( 'genesis_header', 'custom_get_header_search_toggle' );
+/**
+ * Outputs the header search form toggle button.
+ */
+function custom_get_header_search_toggle() {
+    printf(
+        '<a href="#header-search-wrap" aria-controls="header-search-wrap" aria-expanded="false" role="button" class="toggle-header-search"><span class="screen-reader-text">%s</span><span class="ionicons ion-ios-search"></span></a>',
+        __( 'Show Search', 'infinity-pro' )
+    );
+}
+
+add_action( 'genesis_header', 'custom_do_header_search_form' );
+/**
+ * Outputs the header search form.
+ */
+function custom_do_header_search_form() {
+    $button = sprintf(
+        '<a href="#" role="button" aria-expanded="false" aria-controls="header-search-wrap" class="toggle-header-search close"><span class="screen-reader-text">%s</span><span class="ionicons ion-ios-close-empty"></span></a>',
+        __( 'Hide Search', 'infinity-pro' )
+    );
+
+    printf(
+        '<div id="header-search-wrap" class="header-search-wrap">%s %s</div>',
+        get_search_form( false ),
+        $button
+    );
+}
+
+
+/* Code to Display Featured Image on top of the post on single team member pages */
+add_action( 'genesis_before_entry_content', 'display_team_member_featured_image_on_page', 1 );
+function display_team_member_featured_image_on_page() {
+	if ( ! is_singular( 'post' ) && is_page_template('page_team') )  return;
+
+	$image = genesis_get_image( array(
+		'format'  => 'html',
+		'size'    => 'team-member',
+		'context' => '',
+		'attr'    => array ( 'class' => 'aligncenter', 'alt' => the_title_attribute( 'echo=0' ) ), // set a default WP image class
+
+	) );
+	if ( $image ) {
+		printf( '<div class="featured-image-class">%s</div>', $image ); 
+	}
+}

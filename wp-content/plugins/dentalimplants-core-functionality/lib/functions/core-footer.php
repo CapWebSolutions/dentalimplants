@@ -37,7 +37,7 @@ function cap_web_footer_creds_filter( $creds ) {
 	
 	$creds = '<div class="footer-alignleft">';
 	$creds .= '<a href="' . $cred1_url . '">' . $cred1_title . '</a> &middot; <a href="' . $cred2_url . '">' . $cred2_title . '</a><br/>';
-	$creds .= 'Copyright [footer_copyright] [sitename] &middot; All Rights Reserved.';
+	$creds .= 'Copyright [footer_copyright] [sitename], 467 Pennsylvania Avenue, Suite 201, Fort Washington, PA 19034';
 	$creds .= '</div><div class="footer-alignright">';
 	$creds .= "Website by <a {$rel} href=\"https://capwebsolutions.com/\" target=\"_blank\" >Cap Web Solutions</a><br>";
 	$creds .= '[footer_custombacktotop]';
