@@ -338,3 +338,37 @@ function display_team_member_featured_image_on_page() {
 		printf( '<div class="featured-image-class">%s</div>', $image ); 
 	}
 }
+
+// remove_action( 'genesis_loop', 'genesis_404' ); // Remove the default Genesis 404 content
+// add_action( 'genesis_loop', 'cd_custom_404' ); // Add function for custom 404 content
+
+function cd_custom_404() {
+
+    if ( is_404() ) {
+        get_template_part('/partials/sitemap'); // Plop in our customized sitemap code
+    }
+
+}
+
+add_filter( 'genesis_sitemap_output', 'pidental_sitemap');
+function pidental_sitemap() {
+	$heading = ( genesis_a11y( 'headings' ) ? 'h2' : 'h4' );
+	
+	$sitemap  = '<p>Thank you for visiting our website. Here is a map of our pages.</p><ul>';
+	$sitemap  =  sprintf( '<%2$s>%1$s</%2$s>', __( 'Pages:', 'genesis' ), $heading );
+	$sitemap .=  sprintf( '<ul>%s</ul>', wp_list_pages( 'title_li=&echo=0&depth=' ) );
+
+	$sitemap .=  sprintf( '<hr><%2$s>%1$s</%2$s>', __( 'Categories:', 'genesis' ) , $heading );
+	$sitemap .=  sprintf( '<ul>%s</ul>', wp_list_categories( 'sort_column=name&title_li=&echo=0' ) );
+	
+	$sitemap .=  sprintf( '<%2$s>%1$s</%2$s>', __( 'Monthly:', 'genesis' ) , $heading );
+    $sitemap .=  sprintf( '<ul>%s</ul>', wp_get_archives( 'type=monthly&echo=0' ) );
+ 
+    $sitemap .=  sprintf( '<%2$s>%1$s</%2$s>', __( 'Recent Posts:', 'genesis' ) , $heading );
+	$sitemap .=  sprintf( '<ul>%s</ul>', wp_get_archives( 'type=postbypost&limit=100&echo=0' ) );
+	
+	$sitemap .= sprintf( '</ul><hr><a href="%s">Back Home</a>', home_url() );
+
+	return $sitemap;
+
+}

@@ -47,7 +47,7 @@ function infinity_team_loop() {
 		'order'          => 'ASC',
 		'orderby'        => 'menu_order',
 		'post_type'      => 'page',
-		'posts_per_page' => 8,
+		'posts_per_page' => 12,
 		'paged'          => get_query_var( 'paged' ),
 	);
 

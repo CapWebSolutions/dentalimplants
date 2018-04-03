@@ -30,6 +30,7 @@ define( 'CORE_FUNCTION_DIR', plugin_dir_path( __FILE__ ) );
 
 // General. This should always be used. 
 include_once( CORE_FUNCTION_DIR . '/lib/functions/general.php' );
+include_once( CORE_FUNCTION_DIR . '/lib/functions/loginout.php' );  // Login screen customizations
 
 // Shortcode Updater. 
 include_once( CORE_FUNCTION_DIR . '/lib/functions/update-shortcodes.php' );
