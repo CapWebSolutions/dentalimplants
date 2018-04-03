@@ -227,6 +227,12 @@ function infinity_widget_area_class( $id ) {
 
 	$class = '';
 
+	// Hack to resolve Infinity Pro bug/feature in flex widget alignment. 
+	if ( 'front-page-6' === $id && ( 0 === $count % 4 || 1 === $count % 4 ) ) {
+			$class .= ' widget-fourths';
+			return $class;
+	}
+
 	if ( $count == 1 ) {
 		$class .= ' widget-full';
 	} elseif ( $count % 3 == 1 ) {
