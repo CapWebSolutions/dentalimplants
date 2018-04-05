@@ -1,21 +1,20 @@
 <?php
-
 /**
- * Infinity Pro.
+ * Dental Implants Infini-Pro.
  *
- * This file adds the team page template to the Infinity Pro Theme.
+ * This file adds the team page template to the Dental Implants Infini-Pro theme.
  *
  * Template Name: Team
  *
- * @package Infinity
- * @author  StudioPress
+ * @package DentalImplants
+ * @author  Cap Web Solutions
  * @license GPL-2.0+
- * @link	http://my.studiopress.com/themes/infinity/
+ * @link    https://github.com/capwebsolutions.com/dentalimplatns.git/
  */
 
 // Add team page body class to the head.
-add_filter( 'body_class', 'infinity_add_body_class' );
-function infinity_add_body_class( $classes ) {
+add_filter( 'body_class', 'dentalimplants_add_body_class' );
+function dentalimplants_add_body_class( $classes ) {
 
 	$classes[] = 'team-page';
 
@@ -24,8 +23,8 @@ function infinity_add_body_class( $classes ) {
 }
 
 // Conditionally remove loop.
-add_action( 'genesis_before', 'infinity_conditionally_remove_loop' );
-function infinity_conditionally_remove_loop () {
+add_action( 'genesis_before', 'dentalimplants_conditionally_remove_loop' );
+function dentalimplants_conditionally_remove_loop () {
 
 	if ( get_query_var( 'paged' ) >= 2 ) {
 		remove_action('genesis_loop', 'genesis_do_loop');
@@ -37,8 +36,8 @@ function infinity_conditionally_remove_loop () {
 add_filter( 'genesis_site_layout', '__genesis_return_full_width_content' );
 
 // Add our custom loop.
-add_action( 'genesis_loop', 'infinity_team_loop' );
-function infinity_team_loop() {
+add_action( 'genesis_loop', 'dentalimplants_team_loop' );
+function dentalimplants_team_loop() {
 
 	global $post;
 
@@ -71,12 +70,12 @@ function infinity_team_loop() {
 	}
 
 	// Setup the team entry actions.
-	add_filter( 'post_class' , 'infinity_team_class' );
-	add_action( 'genesis_entry_content', 'infinity_page_team_image' );
+	add_filter( 'post_class' , 'dentalimplants_team_class' );
+	add_action( 'genesis_entry_content', 'dentalimplants_page_team_image' );
 	add_action( 'genesis_after_entry_content', 'genesis_entry_header_markup_open' , 5 );
 	add_action( 'genesis_after_entry_content', 'genesis_entry_header_markup_close', 15 );
 	add_action( 'genesis_after_entry_content', 'genesis_do_post_title' );
-	add_action( 'genesis_after_entry_content', 'infinity_team_title' );
+	add_action( 'genesis_after_entry_content', 'dentalimplants_team_title' );
 
 	if( !isset( $query_args ) ) {
 		$query_args = array();
@@ -84,12 +83,12 @@ function infinity_team_loop() {
 
 	genesis_custom_loop( wp_parse_args( $query_args, $args ) );
 
-	remove_filter( 'post_class' , 'infinity_team_class' );
+	remove_filter( 'post_class' , 'dentalimplants_team_class' );
 
 }
 
 // Add team member featured image.
-function infinity_page_team_image() {
+function dentalimplants_page_team_image() {
 
 	$image = genesis_get_image( array(
 		'format' => 'html',
@@ -104,7 +103,7 @@ function infinity_page_team_image() {
 }
 
 // Add team title field.
-function infinity_team_title() {
+function dentalimplants_team_title() {
 
 	$title = '';
 
@@ -117,7 +116,7 @@ function infinity_team_title() {
 }
 
 // Add one-fourth class to the page team entry.
-function infinity_team_class( $classes ) {
+function dentalimplants_team_class( $classes ) {
 
 	global $wp_query;
 

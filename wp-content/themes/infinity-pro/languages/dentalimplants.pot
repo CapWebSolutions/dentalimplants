@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"Project-Id-Version: Infinity Pro 1.1.1\n"
+"Project-Id-Version: DentalImplants Infini-Pro 1.0.0\n"
 "POT-Creation-Date: 2017-01-26 17:46-0500\n"
 "PO-Revision-Date: 2017-01-12 13:10-0500\n"
 "Last-Translator: StudioPress <translations@studiopress.com>\n"
@@ -176,17 +176,17 @@ msgid "Infinity Pro"
 msgstr ""
 
 #. Theme URI of the plugin/theme
-msgid "http://my.studiopress.com/themes/infinity/"
+msgid "https://github.com/capwebsolutions/dentalimplants/"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "This is the Infinity Pro theme created for the Genesis Framework."
+msgid "This is the Dental Implants Infini-Pro theme created for the Genesis Framework."
 msgstr ""
 
 #. Author of the plugin/theme
-msgid "StudioPress"
+msgid "Cap Web Solutions"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http://www.studiopress.com/"
+msgid "https://capwebsolutions.com/"
 msgstr ""

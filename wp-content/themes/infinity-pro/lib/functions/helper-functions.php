@@ -1,13 +1,13 @@
 <?php
 /**
- * Infinity Pro.
+ * Dental Implants Infini-Pro.
  *
- * This file defines helper functions used elsewhere in the Infinity Pro Theme.
+ * This file defines helper functions used elsewhere in the Dental Implants Infini-Pro theme.
  *
- * @package Infinity
- * @author  StudioPress
+ * @package DentalImplants
+ * @author  Cap Web Solutions
  * @license GPL-2.0+
- * @link    http://my.studiopress.com/themes/infinity/
+ * @link    https://github.com/capwebsolutions.com/dentalimplatns.git/
  */
 
 /**

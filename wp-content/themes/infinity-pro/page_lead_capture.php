@@ -1,20 +1,18 @@
 <?php
 /**
- * Infinity Pro.
+ * Dental Implants Infini-Pro.
  *
- * This file adds the lead capture page template to the Infinity Pro Theme.
+ * This file adds the lead capture page template to the Dental Implants Infini-Pro theme.
  *
- * Template Name: Lead Capture
- *
- * @package Infinity
- * @author  StudioPress
+ * @package DentalImplants
+ * @author  Cap Web Solutions
  * @license GPL-2.0+
- * @link    http://my.studiopress.com/themes/infinity/
+ * @link    https://github.com/capwebsolutions.com/dentalimplatns.git/
  */
 
 // Add landing page body class to the head.
-add_filter( 'body_class', 'infinity_add_body_class' );
-function infinity_add_body_class( $classes ) {
+add_filter( 'body_class', 'dentalimplants_add_body_class' );
+function dentalimplants_add_body_class( $classes ) {
 
 	$classes[] = 'lead-capture-page';
 
@@ -26,8 +24,8 @@ function infinity_add_body_class( $classes ) {
 remove_action ( 'genesis_before_header', 'genesis_skip_links', 5 );
 
 // Dequeue Skip Links Script.
-add_action( 'wp_enqueue_scripts', 'infinity_dequeue_skip_links' );
-function infinity_dequeue_skip_links() {
+add_action( 'wp_enqueue_scripts', 'dentalimplants_dequeue_skip_links' );
+function dentalimplants_dequeue_skip_links() {
 	wp_dequeue_script( 'skip-links' );
 }
 
@@ -35,8 +33,8 @@ function infinity_dequeue_skip_links() {
 add_filter( 'genesis_site_layout', '__genesis_return_full_width_content' );
 
 // Hook lead capture widget area.
-add_action( 'genesis_loop', 'infinity_lead_capture' );
-function infinity_lead_capture() {
+add_action( 'genesis_loop', 'dentalimplants_lead_capture' );
+function dentalimplants_lead_capture() {
 
 	genesis_widget_area( 'lead-capture', array(
 		'before' => '<div class="lead-capture">',
@@ -46,7 +44,7 @@ function infinity_lead_capture() {
 }
 
 // Remove offscreen content.
-remove_action( 'genesis_before_header', 'infinity_offscreen_content_output' );
+remove_action( 'genesis_before_header', 'dentalimplants_offscreen_content_output' );
 
 // Remove site header elements.
 remove_action( 'genesis_header', 'genesis_header_markup_open', 5 );

@@ -1,20 +1,18 @@
 <?php
 /**
- * Infinity Pro.
+ * Dental Implants Infini-Pro.
  *
- * This file adds the landing page template to the Infinity Pro Theme.
+ * This file adds the landing page template to the Dental Implants Infini-Pro theme.
  *
- * Template Name: Landing
- *
- * @package Infinity
- * @author  StudioPress
+ * @package DentalImplants
+ * @author  Cap Web Solutions
  * @license GPL-2.0+
- * @link    http://my.studiopress.com/themes/infinity/
+ * @link    https://github.com/capwebsolutions.com/dentalimplatns.git/
  */
 
 // Add landing page body class to the head.
-add_filter( 'body_class', 'infinity_add_body_class' );
-function infinity_add_body_class( $classes ) {
+add_filter( 'body_class', 'dentalimplants_add_body_class' );
+function dentalimplants_add_body_class( $classes ) {
 
 	$classes[] = 'landing-page';
 
@@ -26,8 +24,8 @@ function infinity_add_body_class( $classes ) {
 remove_action ( 'genesis_before_header', 'genesis_skip_links', 5 );
 
 // Dequeue Skip Links Script.
-add_action( 'wp_enqueue_scripts', 'infinity_dequeue_skip_links' );
-function infinity_dequeue_skip_links() {
+add_action( 'wp_enqueue_scripts', 'dentalimplants_dequeue_skip_links' );
+function dentalimplants_dequeue_skip_links() {
 	wp_dequeue_script( 'skip-links' );
 }
 
@@ -35,7 +33,7 @@ function infinity_dequeue_skip_links() {
 add_filter( 'genesis_site_layout', '__genesis_return_full_width_content' );
 
 // Remove offscreen content.
-remove_action( 'genesis_before_header', 'infinity_offscreen_content_output' );
+remove_action( 'genesis_before_header', 'dentalimplants_offscreen_content_output' );
 
 // Remove site header elements.
 remove_action( 'genesis_header', 'genesis_header_markup_open', 5 );

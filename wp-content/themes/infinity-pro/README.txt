@@ -1,8 +1,8 @@
-INFINITY PRO
-http://my.studiopress.com/themes/infinity/
+DENTAL IMLANTS INFINI-PRO
+https://github.com/capwebsolutions/dentalimplants.git/
 
 INSTALL
-1. Upload the Infinity Pro theme folder via FTP to your wp-content/themes/ directory. (The Genesis parent theme needs to be in the wp-content/themes/ directory as well.)
+1. Upload the Dental Implants Infini-Pro theme folder via FTP to your wp-content/themes/ directory. (The Genesis parent theme needs to be in the wp-content/themes/ directory as well.)
 2. Go to your WordPress dashboard and select Appearance.
 3. Activate the Infinity Pro theme.
 4. Inside your WordPress dashboard, go to Genesis > Theme Settings and configure them to your liking. To set up the theme like the demo, please visit http://my.studiopress.com/documentation/infinity-pro-theme/.
@@ -24,39 +24,15 @@ Footer 2 - Footer 2 widget area.
 Footer 3 - Footer 3 widget area.
 
 ICON FONTS
-The icons used in the Infinity Pro theme are free of copyright and courtesy of http://ionicons.com/.
+The icons used in the Dental Implants Infini-Pro theme are free of copyright and courtesy of http://ionicons.com/.
 
 LOCALIZATION
-The Infinity Pro theme is translation ready.  More information about the translation process can be found at http://codex.wordpress.org/Translating_WordPress/
+The Dental Implants Infini-Pro theme is translation ready.  More information about the translation process can be found at http://codex.wordpress.org/Translating_WordPress/
 
 SUPPORT
-Please visit http://my.studiopress.com/help/ for theme support.
+Please visit https://capwebsolutions.com/ for theme support.
 
 CHANGELOG
 
 = 1.0.0 =
 * Initial release
-
-= 1.1.0 =
-* Include additional WooCommerce support and styling
-* Modified folder structure
-* Add CSS for extra wide layout on team page
-* Add CSS for full body class on landing page and lead capture pages
-* Update documentation
-* Update responsive menu
-* Update text domain
-
-= 1.1.1 =
-* Fix minor WooCommerce style bugs
-* Standards check
-* Update mobile menu submenu label
-
-= 1.1.2 =
-* Fix error thrown when WooCommerce was inactive
-
-= 1.1.3 =
-* Fix product gallery bug in WooCommerce 3.0 update
-* Update media query for menu
-* Update flexible widgets to work with customizer
-* Update responsive menu to 1.1.3
-* Optimize front page images
