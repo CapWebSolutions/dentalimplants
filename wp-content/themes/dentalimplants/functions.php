@@ -33,13 +33,13 @@ include_once( CHILD_DIR . '/lib/output.php' );
 require_once( CHILD_DIR . '/lib/customize.php' );
 
 // Add the required WooCommerce functions.
-include_once( CHILD_DIR . '/lib/woocommerce/woocommerce-setup.php' );
+// include_once( CHILD_DIR . '/lib/woocommerce/woocommerce-setup.php' );
 
 // Add the required WooCommerce custom CSS.
-include_once( CHILD_DIR . '/lib/woocommerce/woocommerce-output.php' );
+// include_once( CHILD_DIR . '/lib/woocommerce/woocommerce-output.php' );
 
 // Include notice to install Genesis Connect for WooCommerce.
-include_once( CHILD_DIR . '/lib/woocommerce/woocommerce-notice.php' );
+// include_once( CHILD_DIR . '/lib/woocommerce/woocommerce-notice.php' );
 
 // include_once( CHILD_DIR . '/lib/twentyfourteen-search.php' );
 include_once( CHILD_DIR . '/lib/sk-hello-bar.php' );
@@ -151,8 +151,8 @@ genesis_unregister_layout( 'sidebar-content-sidebar' );
 genesis_unregister_layout( 'sidebar-sidebar-content' );
 
 // Remove output of primary navigation right extras.
-// remove_filter( 'genesis_nav_items', 'genesis_nav_right', 10, 2 );
-// remove_filter( 'wp_nav_menu_items', 'genesis_nav_right', 10, 2 );
+remove_filter( 'genesis_nav_items', 'genesis_nav_right', 10, 2 );
+remove_filter( 'wp_nav_menu_items', 'genesis_nav_right', 10, 2 );
 
 // Remove navigation meta box.
 add_action( 'genesis_theme_settings_metaboxes', 'dentalimplants_remove_genesis_metaboxes' );
@@ -170,6 +170,11 @@ function dentalimplants_skip_links_output( $links ) {
 
 	return $links;
 
+}
+
+// Force Content Sidebar layout on internal pages.
+if ( is_page && !is_front_page() ) {
+	add_filter( 'genesis_site_layout', '__genesis_return_content_sidebar' );
 }
 
 // Rename primary and secondary navigation menus.
@@ -292,6 +297,17 @@ genesis_register_sidebar( array(
 	'name'        => __( 'Front Page 7', 'dentalimplants-infini-pro' ),
 	'description' => __( 'This is the front page 7 section.', 'dentalimplants-infini-pro' ),
 ) );
+genesis_register_sidebar( array(
+	'id'          => 'after-entry-1',
+	'name'        => __( 'After Entry 1', 'dentalimplants-infini-pro' ),
+	'description' => __( 'This is the after entry style 1 section.', 'dentalimplants-infini-pro' ),
+) );
+genesis_register_sidebar( array(
+	'id'          => 'after-entry-2',
+	'name'        => __( 'After Entry 2', 'dentalimplants-infini-pro' ),
+	'description' => __( 'This is the after entry style 2 section.', 'dentalimplants-infini-pro' ),
+) );
+
 
 /** Register Utility Bar Widget Areas. */
 // genesis_register_sidebar( array(
@@ -330,6 +346,35 @@ function utility_bar() {
  
 	echo '</div></div></div>';
  
+}
+
+// if ( is_page('about') ) {
+// 	remove_action('genesis_after_entry', 'display_after_entry_2_widgets');
+// 	add_action('genesis_after_entry', 'display_after_entry_1_widgets');
+// } else {
+// 	remove_action('genesis_after_entry', 'display_after_entry_1_widgets');
+// 	add_action('genesis_after_entry', 'display_after_entry_2_widgets');
+// }
+
+function display_after_entry_1_widgets(){
+	echo '<div class="after-entry-1"><div class="wrap">';
+	
+	genesis_widget_area( 'after-entry-1', array(
+		'before' => '<div class="after-entry-1">',
+		'after' => '</div>',
+	) );
+	
+	echo '</div></div>';
+}
+function display_after_entry_2_widgets(){
+	echo '<div class="after-entry-2"><div class="wrap">';
+
+	genesis_widget_area( 'after-entry-2', array(
+		'before' => '<div class="after-entry-2">',
+		'after' => '</div>',
+	) );
+
+	echo '</div></div>';
 }
 
 /* Code to Display Featured Image on top of the post on single team member pages */
