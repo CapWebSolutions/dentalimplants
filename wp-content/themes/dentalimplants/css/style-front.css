@@ -15,11 +15,24 @@ Loaded on the front page only */
 	border-bottom: 1px solid transparent;
 }
 
-.front-page .white .site-header,
+/* This code removed to permit use of logo image AND retain transparent nav bg. 
+ * Ref: https://sridharkatakam.com/transparent-site-header-on-infinity-pros-homepage-when-theres-a-header-image/
+ */
+/* .front-page .white .site-header,
 .header-image.front-page .site-header {
 	background-color: #fff;
 	border-bottom: 1px solid #eee;
+} */
+/* --- End of removed code */
+
+/* This added */
+.front-page .white .site-header,
+.header-image.front-page .white .site-header {
+    background-color: #fff;
+    border-bottom: 1px solid #eee;
 }
+/* --- End of added code */
+
 
 .front-page .offscreen-content-icon button,
 .front-page .site-title a,
@@ -48,9 +61,9 @@ Loaded on the front page only */
 .front-page .white .genesis-nav-menu a,
 .front-page .white .offscreen-content-icon button,
 .front-page .white .site-title a,
-.header-image.front-page .genesis-nav-menu a,
-.header-image.front-page .genesis-nav-menu .sub-menu a,
-.header-image.front-page .offscreen-content-icon button {
+.header-image.front-page .white .genesis-nav-menu a,
+.header-image.front-page .white .genesis-nav-menu .sub-menu a,
+.header-image.front-page .white .offscreen-content-icon button {
 	color: #000;
 }
 

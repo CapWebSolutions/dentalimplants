@@ -1097,7 +1097,7 @@ img.alignright,
 .notice-bar {
     background-color: black;
     color: #fff;
-    padding: 10px 30px;
+    padding: 0 30px;
     text-align: right;
 }
 
@@ -1305,7 +1305,7 @@ a.treatment-title {
 	margin-top: 3px;
 	min-height: 65px;
 	padding:0;
-	width: 200px;
+	width: 81px;
 }
 
 .site-title {
@@ -1923,6 +1923,32 @@ p.entry-meta {
 	}
 
 }
+
+/* 801px Media query to handle problem with nav not being centered after uploading logo image. 
+ * ref: https://sridharkatakam.com/transparent-site-header-on-infinity-pros-homepage-when-theres-a-header-image/
+ */
+@media only screen and (min-width: 801px) {
+    .site-header > .wrap {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+            -ms-flex-pack: center;
+                justify-content: center;
+    }
+
+    .nav-primary {
+        -webkit-box-flex: 1;
+            -ms-flex: 1;
+                flex: 1;
+    }
+
+    .title-area {
+        -ms-flex-item-align: start;
+            align-self: flex-start;
+    }
+}
+
 
 @media only screen and (max-width: 800px) {
 
