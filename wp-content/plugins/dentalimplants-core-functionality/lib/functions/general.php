@@ -126,20 +126,11 @@ function wsm_keep_ie_modern( $headers ) {
 	}
 		return $headers;
 }
-//
-// * Customize search form input box text
-// * Ref: https://my.studiopress.com/snippets/search-form/
-add_filter( 'genesis_search_text', 'sp_search_text' );
-function sp_search_text( $text ) {
-	return esc_attr( 'Search ' . get_bloginfo( $show = '', 'display' ) );
-	get_permalink();
-}
 
 //
 // Enqueue / register needed scripts & styles
 add_action( 'wp_enqueue_scripts', 'dentalimplants_enqueue_needed_scripts' );
 function dentalimplants_enqueue_needed_scripts() {
-	// wp_enqueue_style( 'font-awesome', 'https://use.fontawesome.com/73b396df58.css' );
 	wp_enqueue_style( 'core-functionality', CORE_FUNCTION_URL . 'assets/css/core-functionality.css' );
 }
 
@@ -148,9 +139,9 @@ function dentalimplants_enqueue_needed_scripts() {
 // Requires a transparent logo file in the active theme's images folder named 'login_logo.png'
 add_action( 'login_head', 'custom_loginlogo' );
 function custom_loginlogo() {
-echo '<style type="text/css">
-h1 a {background-image: url(' . get_bloginfo( 'stylesheet_directory' ) . '/images/login_logo.png) !important; }
-</style>';
+	echo '<style type="text/css">
+	h1 a {background-image: url(' . get_bloginfo( 'stylesheet_directory' ) . '/images/login_logo.png) !important; }
+	</style>';
 }
 
 // Custom avatar_size
@@ -199,12 +190,6 @@ function remove_titles_from_pages() {
     }
 }
 
-
-
-
-
-
-
 /**
  * Redirect non-admins to the homepage after logging into the site.
  *
@@ -228,36 +213,3 @@ function dentalimplants_login_redirect( $redirect_to, $request, $user  ) {
 }
 add_filter( 'login_redirect', 'dentalimplants_login_redirect', 10, 3 );
 
-
-
-// add_filter( 'wp_nav_menu_items', 'theme_menu_extras', 10, 2 );
-/**
- * Filter menu items, appending either a search form or today's date.
- *
- * @param string   $menu HTML string of list items.
- * @param stdClass $args Menu arguments.
- *
- * @return string Amended HTML string of list items.
- */
-function theme_menu_extras( $menu, $args ) {
-
-	//* Change 'primary' to 'secondary' to add extras to the secondary navigation menu
-	if ( 'primary' !== $args->theme_location )
-		return $menu;
-
-	//* Add a search form to the navigation menu
-	
-	ob_start();
-	get_search_form();
-	$search = ob_get_clean();
-	$menu  .= '<li class="right search">' . $search . '</li>';
-	
-
-	//* Uncomment this block to add the date to the navigation menu
-	/*
-	$menu .= '<li class="right date">' . date_i18n( get_option( 'date_format' ) ) . '</li>';
-	*/
-
-	return $menu;
-
-}

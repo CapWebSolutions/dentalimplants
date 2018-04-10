@@ -1,22 +1,22 @@
 <?php
 /**
- * Dental Implants Infini-Pro.
+ * Infinity Pro.
  *
- * This file adds the default theme settings to the Dental Implants Infini-Pro theme.
+ * This file adds the default theme settings to the Infinity Pro Theme.
  *
- * @package DentalImplants
- * @author  Cap Web Solutions
+ * @package Infinity
+ * @author  StudioPress
  * @license GPL-2.0+
- * @link    https://github.com/capwebsolutions.com/dentalimplatns.git/
+ * @link    http://my.studiopress.com/themes/infinity/
  */
 
-add_filter( 'genesis_theme_settings_defaults', 'dentalimplants_theme_defaults' );
+add_filter( 'genesis_theme_settings_defaults', 'infinity_theme_defaults' );
 /**
  * Updates theme settings on reset.
  *
  * @since 1.0.0
  */
-function dentalimplants_theme_defaults( $defaults ) {
+function infinity_theme_defaults( $defaults ) {
 
 	$defaults['blog_cat_num']              = 8;
 	$defaults['content_archive']           = 'full';
@@ -29,13 +29,13 @@ function dentalimplants_theme_defaults( $defaults ) {
 
 }
 
-add_action( 'after_switch_theme', 'dentalimplants_theme_setting_defaults' );
+add_action( 'after_switch_theme', 'infinity_theme_setting_defaults' );
 /**
  * Updates theme settings on activation.
  *
  * @since 1.0.0
  */
-function dentalimplants_theme_setting_defaults() {
+function infinity_theme_setting_defaults() {
 
 	if ( function_exists( 'genesis_update_settings' ) ) {
 
@@ -54,13 +54,13 @@ function dentalimplants_theme_setting_defaults() {
 
 }
 
-add_filter( 'simple_social_default_styles', 'dentalimplants_social_default_styles' );
+add_filter( 'simple_social_default_styles', 'infinity_social_default_styles' );
 /**
  * Updates Simple Social Icon settings on activation.
  *
  * @since 1.0.0
  */
-function dentalimplants_social_default_styles( $defaults ) {
+function infinity_social_default_styles( $defaults ) {
 
 	$args = array(
 		'alignment'              => 'alignleft',

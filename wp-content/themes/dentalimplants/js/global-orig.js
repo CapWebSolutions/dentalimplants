@@ -5,18 +5,13 @@
  * @author StudioPress
  * @license GPL-2.0+
  */
-/* Sections commented out for hello bar ala sk
- ref: https://sridharkatakam.com/fixed-notice-bar-header-in-infinity-pro/#comment-486535
- */
 
 ( function($) {
 
 	var $body         = $( 'body' ),
 		$content      = $( '.offscreen-content' ),
-		// headerHeight  = $( '.site-header' ).height(),
-		// $siteHeader   = $( '.site-header' ),
-		headerHeight  = $( '.fixed-header' ).height(),
-        $siteHeader   = $( '.fixed-header' ),
+		headerHeight  = $( '.site-header' ).height(),
+		$siteHeader   = $( '.site-header' ),
 		$siteInner    = $( '.site-inner' ),
 		sOpen         = false,
 		windowHeight  = $(window).height();
@@ -41,16 +36,9 @@
 	});
 
 	// Add white class to site container after 200px.
-	// $(document).on( 'scroll', function() {
-
-	// 	if ( $(document).scrollTop() > 200 ) {
-	// 		$( '.site-container' ).addClass( 'white' );
-	// Add white class to site container after 108px.
-
 	$(document).on( 'scroll', function() {
 
-		if ( $(document).scrollTop() > 108 ) {
-
+		if ( $(document).scrollTop() > 200 ) {
 			$( '.site-container' ).addClass( 'white' );
 
 		} else {
@@ -102,8 +90,7 @@
 	// Function to position the site header.
 	function __repositionSiteHeader( headerHeight, $siteInner ) {
 
-		// if ( 'fixed' == __getPositionValue( '.site-header' ) ) {
-		if ( 'fixed' == __getPositionValue( '.fixed-header' ) ) {
+		if ( 'fixed' == __getPositionValue( '.site-header' ) ) {
 			$siteInner.css( 'margin-top', headerHeight + 'px' );
 		} else {
 			$siteInner.removeAttr( 'style' );

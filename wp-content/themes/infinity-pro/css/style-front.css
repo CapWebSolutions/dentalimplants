@@ -1,5 +1,5 @@
-/* Dental Implants Infini-Pro Front Page
-Loaded on the front page only */
+/* Infinity Pro Front Page
+Loaded on the front page */
 
 /* Front Page
 ---------------------------------------------------------------------------------------------------- */
@@ -195,7 +195,6 @@ Loaded on the front page only */
 
 .front-page-1 a.button {
 	border-bottom: none;
-	margin: 1em;
 }
 
 .front-page-1 .widget-title {
@@ -617,7 +616,6 @@ Loaded on the front page only */
 
 .front-page .content-box {
 	padding: 50px 40px 60px;
-	/* height: 610px; */
 }
 
 .front-page .solid-section .content-box {

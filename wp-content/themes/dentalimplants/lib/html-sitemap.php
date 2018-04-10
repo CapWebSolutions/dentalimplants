@@ -19,13 +19,9 @@ function ultra_sitemap() {
 	// Build list of pages to be excluded from map.
 	$exclude_list = remove_these_unwanted_pages( $list );
 
-	// Dump remaining pages to output buffer - $sitemap
+	// Dump pages to output buffer - $sitemap
 	$sitemap .=  sprintf( '<ul>%s</ul>', wp_list_pages( 'title_li=&echo=0&depth=&exclude='.$exclude_list ) );
 
-	// Now get a listing of all post categories
-	$sitemap .=  sprintf( '<hr><%2$s>%1$s</%2$s>', __( 'Categories:', 'genesis' ) , $heading );
-	$sitemap .=  sprintf( '<ul>%s</ul>', wp_list_categories( 'sort_column=name&title_li=&echo=0' ) );
- 
 	// Output 100 most recent posts
     $sitemap .=  sprintf( '<%2$s>%1$s</%2$s>', __( 'Recent Posts:', 'genesis' ) , $heading );
 	$sitemap .=  sprintf( '<ul>%s</ul>', wp_get_archives( 'type=postbypost&limit=100&echo=0' ) );

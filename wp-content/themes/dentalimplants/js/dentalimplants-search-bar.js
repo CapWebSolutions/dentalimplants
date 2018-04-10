@@ -1,7 +1,7 @@
 /**
- * Infinity Pro entry point.
+ * Dental Implants Infini-Pro entry point.
  *
- * @package Infinity\JS
+ * @package Dentalimplants\JS
  * @author  StudioPress
  * @license GPL-2.0+
  */

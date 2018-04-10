@@ -10,25 +10,25 @@
  * @link    https://github.com/capwebsolutions.com/dentalimplatns.git/
  */
 
-add_action( 'wp_enqueue_scripts', 'infinity_css' );
+add_action( 'wp_enqueue_scripts', 'dentalimplants_css' );
 /**
  * Checks the settings for the link color color, accent color, and header.
  * If any of these value are set the appropriate CSS is output.
  *
  * @since 1.0.0
  */
-function infinity_css() {
+function dentalimplants_css() {
 
 	$handle  = defined( 'CHILD_THEME_NAME' ) && CHILD_THEME_NAME ? sanitize_title_with_dashes( CHILD_THEME_NAME ) : 'child-theme';
 
-	$color_accent = get_theme_mod( 'infinity_accent_color', infinity_customizer_get_default_accent_color() );
+	$color_accent = get_theme_mod( 'dentalimplants_accent_color', dentalimplants_customizer_get_default_accent_color() );
 
-	$opts = apply_filters( 'infinity_images', array( '1', '3', '5', '7' ) );
+	$opts = apply_filters( 'dentalimplants_images', array( '1', '3', '5', '7' ) );
 
 	$settings = array();
 
 	foreach( $opts as $opt ) {
-		$settings[$opt]['image'] = preg_replace( '/^https?:/', '', get_option( $opt .'-infinity-image', sprintf( '%s/images/bg-%s.jpg', get_stylesheet_directory_uri(), $opt ) ) );
+		$settings[$opt]['image'] = preg_replace( '/^https?:/', '', get_option( $opt .'-dentalimplants-image', sprintf( '%s/images/bg-%s.jpg', get_stylesheet_directory_uri(), $opt ) ) );
 	}
 
 	$css = '';
@@ -43,7 +43,7 @@ function infinity_css() {
 
 	}
 
-	$css .= ( infinity_customizer_get_default_accent_color() !== $color_accent ) ? sprintf( '
+	$css .= ( dentalimplants_customizer_get_default_accent_color() !== $color_accent ) ? sprintf( '
 
 		a,
 		.entry-title a:focus,
@@ -90,7 +90,7 @@ function infinity_css() {
 			color: %2$s;
 		}
 
-		', $color_accent, infinity_color_contrast( $color_accent ) ) : '';
+		', $color_accent, dentalimplants_color_contrast( $color_accent ) ) : '';
 
 	if ( $css ) {
 		wp_add_inline_style( $handle, $css );

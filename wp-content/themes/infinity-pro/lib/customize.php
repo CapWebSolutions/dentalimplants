@@ -1,13 +1,13 @@
 <?php
 /**
- * Dental Implants Infini-Pro.
+ * Infinity Pro.
  *
- * This file adds the Customizer additions to the Dental Implants Infini-Pro theme.
+ * This file adds the Customizer additions to the Infinity Pro Theme.
  *
- * @package DentalImplants
- * @author  Cap Web Solutions
+ * @package Infinity
+ * @author  StudioPress
  * @license GPL-2.0+
- * @link    https://github.com/capwebsolutions.com/dentalimplatns.git/
+ * @link    http://my.studiopress.com/themes/infinity/
  */
 
 add_action( 'customize_register', 'infinity_customizer_register' );

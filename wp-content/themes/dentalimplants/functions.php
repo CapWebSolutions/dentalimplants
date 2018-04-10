@@ -12,22 +12,55 @@
 */
 
 
-/**
- * This file adds most of the initial functions and settings for the Dental Implants Infini-Pro theme. 
- */
+/** Define Directory Location Constants */
+if ( ! defined( 'CHILD_DIR' ) )
+	define( 'CHILD_DIR', get_stylesheet_directory() );
+
 
 // Start the engine.
 include_once( get_template_directory() . '/lib/init.php' );
-require_once( 'lib/init.php' );
 
-// Calls the theme's constants & files
-dentalimplants_init();
+// Setup Theme.
+include_once( CHILD_DIR . '/lib/theme-defaults.php' );
+
+// Helper functions.
+include_once( CHILD_DIR . '/lib/helper-functions.php' );
+
+// Include customizer CSS.
+include_once( CHILD_DIR . '/lib/output.php' );
+
+// Add image upload and color select to theme customizer.
+require_once( CHILD_DIR . '/lib/customize.php' );
+
+// Add the required WooCommerce functions.
+include_once( CHILD_DIR . '/lib/woocommerce/woocommerce-setup.php' );
+
+// Add the required WooCommerce custom CSS.
+include_once( CHILD_DIR . '/lib/woocommerce/woocommerce-output.php' );
+
+// Include notice to install Genesis Connect for WooCommerce.
+include_once( CHILD_DIR . '/lib/woocommerce/woocommerce-notice.php' );
+
+// include_once( CHILD_DIR . '/lib/twentyfourteen-search.php' );
+include_once( CHILD_DIR . '/lib/sk-hello-bar.php' );
+
 
 // Set Localization (do not remove).
 add_action( 'after_setup_theme', 'dentalimplants_localization_setup' );
 function dentalimplants_localization_setup(){
-	load_child_theme_textdomain( 'dentalimplants', get_stylesheet_directory() . '/languages' );
+	load_child_theme_textdomain( 'dentalimplants', CHILD_DIR . '/languages' );
 }
+
+define( 'CHILD_THEME_NAME', 'Dental Implants Infini-Pro' );
+define( 'CHILD_THEME_URL', 'https://github.com/capwebsolutions/dentalimplants.git/' );
+define( 'CHILD_THEME_VERSION', wp_get_theme()->get( 'Version' ) );
+
+// Developer Information (do not remove)
+define( 'CHILD_DEVELOPER', 'Cap Web Solutions' );
+define( 'CHILD_DEVELOPER_URL', 'https://capwebsolutions.com/'  );
+
+
+
 
 // Enqueue scripts and styles.
 add_action( 'wp_enqueue_scripts', 'dentalimplants_enqueue_scripts_styles' );
@@ -41,28 +74,34 @@ function dentalimplants_enqueue_scripts_styles() {
 
 	$suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
 	wp_enqueue_script( 'dentalimplants-responsive-menu', get_stylesheet_directory_uri() . '/js/responsive-menus' . $suffix . '.js', array( 'jquery' ), CHILD_THEME_VERSION, true );
+
 	wp_localize_script(
 		'dentalimplants-responsive-menu',
 		'genesis_responsive_menu',
 		dentalimplants_responsive_menu_settings()
 	);
-	wp_enqueue_script(
-		'dentalimplants-search-bar',
-		get_stylesheet_directory_uri() . '/js/dentalimplants-search-bar.js',
-		array( 'jquery' ),
-		CHILD_THEME_VERSION,
-		true
-	);
+	// wp_enqueue_script('dentalimplants-search-bar', get_stylesheet_directory_uri() . '/js/dentalimplants-search-bar.js',	array( 'jquery' ), CHILD_THEME_VERSION, true );
+
+	// wp_enqueue_script( 'dentalimplants-sticky-header', get_stylesheet_directory_uri() . '/js/sticky-header.js', array( 'jquery' ), CHILD_THEME_VERSION, true );
 
 }
+
+// Enqueue scripts and styles
+function themeprefix_scripts_and_styles() {
+    wp_enqueue_Style( 'fontawesome', '//netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.css' );
+    wp_enqueue_script( 'hidesearch', get_stylesheet_directory_uri() . '/js/hidesearch.js', array('jquery'), '1', true );
+}
+add_action( 'wp_enqueue_scripts', 'themeprefix_scripts_and_styles' );
+
+
 
 // Define our responsive menu settings.
 function dentalimplants_responsive_menu_settings() {
 
 	$settings = array(
-		'mainMenu'         => __( 'Menu', 'dentalimplants-pro' ),
+		'mainMenu'         => __( 'Menu', 'dentalimplants' ),
 		'menuIconClass'    => 'ionicons-before ion-ios-drag',
-		'subMenu'          => __( 'Submenu', 'dentalimplants-pro' ),
+		'subMenu'          => __( 'Submenu', 'dentalimplants' ),
 		'subMenuIconClass' => 'ionicons-before ion-chevron-down',
 		'menuClasses'      => array(
 			'others' => array(
@@ -112,8 +151,8 @@ genesis_unregister_layout( 'sidebar-content-sidebar' );
 genesis_unregister_layout( 'sidebar-sidebar-content' );
 
 // Remove output of primary navigation right extras.
-remove_filter( 'genesis_nav_items', 'genesis_nav_right', 10, 2 );
-remove_filter( 'wp_nav_menu_items', 'genesis_nav_right', 10, 2 );
+// remove_filter( 'genesis_nav_items', 'genesis_nav_right', 10, 2 );
+// remove_filter( 'wp_nav_menu_items', 'genesis_nav_right', 10, 2 );
 
 // Remove navigation meta box.
 add_action( 'genesis_theme_settings_metaboxes', 'dentalimplants_remove_genesis_metaboxes' );
@@ -134,7 +173,7 @@ function dentalimplants_skip_links_output( $links ) {
 }
 
 // Rename primary and secondary navigation menus.
-add_theme_support( 'genesis-menus', array( 'primary' => __( 'Header Menu', 'dentalimplants-pro' ), 'secondary' => __( 'Footer Menu', 'dentalimplants-pro' ) ) );
+add_theme_support( 'genesis-menus', array( 'primary' => __( 'Header Menu', 'dentalimplants-infini-pro' ), 'secondary' => __( 'Footer Menu', 'dentalimplants-infini-pro' ) ) );
 
 // Reposition primary navigation menu.
 remove_action( 'genesis_after_header', 'genesis_do_nav' );
@@ -142,26 +181,7 @@ add_action( 'genesis_header', 'genesis_do_nav', 12 );
 
 // Reposition the secondary navigation menu.
 remove_action( 'genesis_after_header', 'genesis_do_subnav' );
-add_action( 'genesis_footer', 'genesis_do_subnav', 5 );
-
-// Add offscreen content if active.
-// add_action( 'genesis_after_header', 'dentalimplants_offscreen_content_output' );
-function dentalimplants_offscreen_content_output() {
-
-	$button = '<button class="offscreen-content-toggle"><i class="icon ion-ios-close-empty"></i> <span class="screen-reader-text">' . __( 'Hide Offscreen Content', 'dentalimplants-pro' ) . '</span></button>';
-
-	if ( is_active_sidebar( 'offscreen-content' ) ) {
-
-		echo '<div class="offscreen-content-icon"><button class="offscreen-content-toggle"><i class="icon ion-ios-more"></i> <span class="screen-reader-text">' . __( 'Show Offscreen Content', 'dentalimplants-pro' ) . '</span></button></div>';
-
-	}
-
-	genesis_widget_area( 'offscreen-content', array(
-		'before' => '<div class="offscreen-content"><div class="offscreen-container"><div class="widget-area"><div class="wrap">',
-		'after'  => '</div>' . $button . '</div></div></div>',
-	));
-
-}
+// add_action( 'genesis_footer', 'genesis_do_subnav', 5 );
 
 // Reduce secondary navigation menu to one level depth.
 add_filter( 'wp_nav_menu_args', 'dentalimplants_secondary_menu_args' );
@@ -233,84 +253,84 @@ function dentalimplants_widget_area_class( $id ) {
 
 }
 
-// Add support for 3-column footer widgets.
+// Add support for 4-column footer widgets.
 add_theme_support( 'genesis-footer-widgets', 4 );
 
 // Register widget areas.
 genesis_register_sidebar( array(
 	'id'          => 'front-page-1',
-	'name'        => __( 'Front Page 1', 'dentalimplants-pro' ),
-	'description' => __( 'This is the front page 1 section.', 'dentalimplants-pro' ),
+	'name'        => __( 'Front Page 1', 'dentalimplants-infini-pro' ),
+	'description' => __( 'This is the front page 1 section.', 'dentalimplants-infini-pro' ),
 ) );
 genesis_register_sidebar( array(
 	'id'          => 'front-page-2',
-	'name'        => __( 'Front Page 2', 'dentalimplants-pro' ),
-	'description' => __( 'This is the front page 2 section.', 'dentalimplants-pro' ),
+	'name'        => __( 'Front Page 2', 'dentalimplants-infini-pro' ),
+	'description' => __( 'This is the front page 2 section.', 'dentalimplants-infini-pro' ),
 ) );
 genesis_register_sidebar( array(
 	'id'          => 'front-page-3',
-	'name'        => __( 'Front Page 3', 'dentalimplants-pro' ),
-	'description' => __( 'This is the front page 3 section.', 'dentalimplants-pro' ),
+	'name'        => __( 'Front Page 3', 'dentalimplants-infini-pro' ),
+	'description' => __( 'This is the front page 3 section.', 'dentalimplants-infini-pro' ),
 ) );
 genesis_register_sidebar( array(
 	'id'          => 'front-page-4',
-	'name'        => __( 'Front Page 4', 'dentalimplants-pro' ),
-	'description' => __( 'This is the front page 4 section.', 'dentalimplants-pro' ),
+	'name'        => __( 'Front Page 4', 'dentalimplants-infini-pro' ),
+	'description' => __( 'This is the front page 4 section.', 'dentalimplants-infini-pro' ),
 ) );
 genesis_register_sidebar( array(
 	'id'          => 'front-page-5',
-	'name'        => __( 'Front Page 5', 'dentalimplants-pro' ),
-	'description' => __( 'This is the front page 5 section.', 'dentalimplants-pro' ),
+	'name'        => __( 'Front Page 5', 'dentalimplants-infini-pro' ),
+	'description' => __( 'This is the front page 5 section.', 'dentalimplants-infini-pro' ),
 ) );
 genesis_register_sidebar( array(
 	'id'          => 'front-page-6',
-	'name'        => __( 'Front Page 6', 'dentalimplants-pro' ),
-	'description' => __( 'This is the front page 6 section.', 'dentalimplants-pro' ),
+	'name'        => __( 'Front Page 6', 'dentalimplants-infini-pro' ),
+	'description' => __( 'This is the front page 6 section.', 'dentalimplants-infini-pro' ),
 ) );
 genesis_register_sidebar( array(
 	'id'          => 'front-page-7',
-	'name'        => __( 'Front Page 7', 'dentalimplants-pro' ),
-	'description' => __( 'This is the front page 7 section.', 'dentalimplants-pro' ),
-) );
-genesis_register_sidebar( array(
-	'id'          => 'lead-capture',
-	'name'        => __( 'Lead Capture', 'dentalimplants-pro' ),
-	'description' => __( 'This is the lead capture section.', 'dentalimplants-pro' ),
-) );
-genesis_register_sidebar( array(
-	'id'          => 'offscreen-content',
-	'name'        => __( 'Offscreen Content', 'dentalimplants-pro' ),
-	'description' => __( 'This is the offscreen content section.', 'dentalimplants-pro' ),
+	'name'        => __( 'Front Page 7', 'dentalimplants-infini-pro' ),
+	'description' => __( 'This is the front page 7 section.', 'dentalimplants-infini-pro' ),
 ) );
 
-add_action( 'genesis_header', 'custom_get_header_search_toggle' );
+/** Register Utility Bar Widget Areas. */
+// genesis_register_sidebar( array(
+// 	'id' => 'utility-bar-left',
+// 	'name' => __( 'Utility Bar Left', 'dentalimplants-infini-pro' ),
+// 	'description' => __( 'This is the left utility bar above the header.', 'dentalimplants-infini-pro' ),
+// ) );
+
+// genesis_register_sidebar( array(
+// 	'id' => 'utility-bar-right',
+// 	'name' => __( 'Utility Bar Right', 'dentalimplants-infini-pro' ),
+// 	'description' => __( 'This is the right utility bar above the header.', 'dentalimplants-infini-pro' ),
+// ) );
+
+// add_action( 'genesis_before_header', 'utility_bar' );
 /**
- * Outputs the header search form toggle button.
- */
-function custom_get_header_search_toggle() {
-    printf(
-        '<a href="#header-search-wrap" aria-controls="header-search-wrap" aria-expanded="false" role="button" class="toggle-header-search"><span class="screen-reader-text">%s</span><span class="ionicons ion-ios-search"></span></a>',
-        __( 'Show Search', 'dentalimplants-pro' )
-    );
+* Add utility bar above header.
+*
+* @author Carrie Dils
+* @copyright Copyright (c) 2013, Carrie Dils
+* @license GPL-2.0+
+*/
+function utility_bar() {
+ 
+	echo '<div class="my-site-header"><div class="utility-bar"><div class="wrap">';
+ 
+	genesis_widget_area( 'utility-bar-left', array(
+		'before' => '<div class="utility-bar-left">',
+		'after' => '</div>',
+	) );
+ 
+	genesis_widget_area( 'utility-bar-right', array(
+		'before' => '<div class="utility-bar-right">',
+		'after' => '</div>',
+	) );
+ 
+	echo '</div></div></div>';
+ 
 }
-
-add_action( 'genesis_header', 'custom_do_header_search_form' );
-/**
- * Outputs the header search form.
- */
-function custom_do_header_search_form() {
-    $button = sprintf(
-        '<a href="#" role="button" aria-expanded="false" aria-controls="header-search-wrap" class="toggle-header-search close"><span class="screen-reader-text">%s</span><span class="ionicons ion-ios-close-empty"></span></a>',
-        __( 'Hide Search', 'dentalimplants-pro' )
-    );
-
-    printf(
-        '<div id="header-search-wrap" class="header-search-wrap">%s %s</div>',
-        get_search_form( false ),
-        $button
-    );
-}
-
 
 /* Code to Display Featured Image on top of the post on single team member pages */
 add_action( 'genesis_before_entry_content', 'display_team_member_featured_image_on_page', 1 );
@@ -329,36 +349,3 @@ function display_team_member_featured_image_on_page() {
 	}
 }
 
-// remove_action( 'genesis_loop', 'genesis_404' ); // Remove the default Genesis 404 content
-// add_action( 'genesis_loop', 'cd_custom_404' ); // Add function for custom 404 content
-
-function cd_custom_404() {
-
-    if ( is_404() ) {
-        get_template_part('/partials/sitemap'); // Plop in our customized sitemap code
-    }
-
-}
-
-add_filter( 'genesis_sitemap_output', 'pidental_sitemap');
-function pidental_sitemap() {
-	$heading = ( genesis_a11y( 'headings' ) ? 'h2' : 'h4' );
-	
-	$sitemap  = '<p>Thank you for visiting our website. Here is a map of our pages.</p><ul>';
-	$sitemap  =  sprintf( '<%2$s>%1$s</%2$s>', __( 'Pages:', 'genesis' ), $heading );
-	$sitemap .=  sprintf( '<ul>%s</ul>', wp_list_pages( 'title_li=&echo=0&depth=' ) );
-
-	$sitemap .=  sprintf( '<hr><%2$s>%1$s</%2$s>', __( 'Categories:', 'genesis' ) , $heading );
-	$sitemap .=  sprintf( '<ul>%s</ul>', wp_list_categories( 'sort_column=name&title_li=&echo=0' ) );
-	
-	$sitemap .=  sprintf( '<%2$s>%1$s</%2$s>', __( 'Monthly:', 'genesis' ) , $heading );
-    $sitemap .=  sprintf( '<ul>%s</ul>', wp_get_archives( 'type=monthly&echo=0' ) );
- 
-    $sitemap .=  sprintf( '<%2$s>%1$s</%2$s>', __( 'Recent Posts:', 'genesis' ) , $heading );
-	$sitemap .=  sprintf( '<ul>%s</ul>', wp_get_archives( 'type=postbypost&limit=100&echo=0' ) );
-	
-	$sitemap .= sprintf( '</ul><hr><a href="%s">Back Home</a>', home_url() );
-
-	return $sitemap;
-
-}

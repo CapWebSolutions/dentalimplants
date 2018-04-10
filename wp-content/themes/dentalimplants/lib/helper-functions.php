@@ -18,8 +18,8 @@
  *
  * @return string Hex color code for accent color.
  */
-function infinity_customizer_get_default_accent_color() {
-	return '#d43c67';
+function dentalimplants_customizer_get_default_accent_color() {
+	return '#dd3333';
 }
 
 /**
@@ -30,7 +30,7 @@ function infinity_customizer_get_default_accent_color() {
  *
  * @return string Hex color code for contrasting color.
  */
-function infinity_color_contrast( $color ) {
+function dentalimplants_color_contrast( $color ) {
 
 	$hexcolor = str_replace( '#', '', $color );
 	$red      = hexdec( substr( $hexcolor, 0, 2 ) );
