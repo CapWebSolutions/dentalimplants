@@ -40,21 +40,20 @@
 
 	});
 
-	// Add white class to site container after 200px.
-	// $(document).on( 'scroll', function() {
-
-	// 	if ( $(document).scrollTop() > 200 ) {
-	// 		$( '.site-container' ).addClass( 'white' );
-	// Add white class to site container after 108px.
+	// Add white class to site container after search icon after 108px.
 
 	$(document).on( 'scroll', function() {
 
 		if ( $(document).scrollTop() > 108 ) {
 
 			$( '.site-container' ).addClass( 'white' );
+			$( '.fa-search' ).addClass( 'white' );
+			$( '.search-toggle' ).addClass( 'white' );
 
 		} else {
 			$( '.site-container' ).removeClass( 'white' );
+			$( '.fa-search' ).removeClass( 'white' );
+			$( '.search-toggle' ).removeClass( 'white' );
 		}
 
 	});
@@ -101,8 +100,6 @@
 
 	// Function to position the site header.
 	function __repositionSiteHeader( headerHeight, $siteInner ) {
-
-		// if ( 'fixed' == __getPositionValue( '.site-header' ) ) {
 		if ( 'fixed' == __getPositionValue( '.fixed-header' ) ) {
 			$siteInner.css( 'margin-top', headerHeight + 'px' );
 		} else {

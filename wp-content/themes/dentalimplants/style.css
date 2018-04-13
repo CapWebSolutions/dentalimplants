@@ -34,6 +34,7 @@
 		- Avatar
 		- Genesis
 		- Search Form
+		- TwentyFourteen-Style Search
 		- Titles
 		- WordPress
 	- Widgets
@@ -817,7 +818,7 @@ th:first-child {
 
 .search-form:before {
 	color: #999;
-	content: "\f4a5";
+	/* content: "\f4a5"; */
 	font-family: "ionicons";
 	font-size: 20px;
 	left: 15px;
@@ -855,7 +856,115 @@ th:first-child {
 	width: 1px;
 }
 
+/* # Used by TwentyFourteen-Style Search functionality
+ * ref: https://wpbeaches.com/adding-fly-search-field-box-genesis-based-twentyfourteen/
+ * 
+---------------------------------------------------------------------------------------------------- */
+.menu-primary  .menu-item {
+	float: left;
+}
 
+#genesis-nav-primary > div > ul.search-form-container {
+	float: right;
+}
+
+.nav-primary {
+	text-align: center;
+} */
+.fa-search {
+	color: #fff;
+}
+
+/* Header search */
+.search-form-container {
+	position: relative;
+}
+
+.search-toggle {
+	float: right;
+	padding: 20px 24px 30px;
+	color: #000;
+	text-align: center;
+	cursor: pointer;
+	line-height: 1;
+}
+
+.search-toggle:hover,
+.search-toggle.active {
+	background: #000;
+}
+.search-toggle:hover .white,
+.search-toggle.active .white {
+	color: #fff;
+}
+
+@media screen and (max-width: 600px) {
+    .search-toggle {
+	position: absolute;
+	top: -50px;
+	right: 0;
+	margin-right: -5%;
+	background: #000;
+	padding: 17px 24px;
+    }
+
+}
+
+.search-box-wrapper {
+	z-index: 999;
+	width: 100%;
+	display: none;
+}
+
+.search-box {
+	padding: 1em;
+	background: #000;
+}
+
+.search-box input[type="search"]{
+	max-width: 350px;
+	float: right;
+	padding: 10px 20px 10px 40px;
+	font-size: 20px;
+	background-color: #fff;
+	border: 0;
+	border-radius: 3px;
+}
+
+.search-box input[value="Search"]{ 
+    display: none; 
+}
+
+
+/* Text meant only for screen readers - from UnderScores */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	position: absolute !important;
+	right: 0;
+}
+
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	color: #000;
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+}
+
+/* # END OF TwentyFourteen-Style Search */
 
 
 /* Titles
@@ -1497,11 +1606,10 @@ a.treatment-title {
 --------------------------------------------- */
 
 .nav-primary {
-	float: left;
-	margin-top: 2px;
+	/* float: left; */
+	/* margin-top: 2px; */
 	text-align: center;
 	width: 60%;
-	/* outline: 1px solid navy; */
 }
 
 /* Footer Navigation
@@ -2183,43 +2291,6 @@ p.entry-meta {
 		padding-left: 10px;
 		padding-right: 10px;
 	}
-
-
-		/* Header Search
-	--------------------------------------------- */
-
-	/* .site-header > .wrap {
-		display: -webkit-box;
-		display: -ms-flexbox;
-		display: flex;
-		-webkit-box-pack: justify;
-			-ms-flex-pack: justify;
-				justify-content: space-between;
-		-webkit-box-align: center;
-			-ms-flex-align: center;
-				align-items: center;
-		position: relative;
-	}
-
-	.title-area,
-	.nav-primary {
-		float: none;
-	}
-
-	.nav-primary {
-		-webkit-box-flex: 1;
-			-ms-flex: 1;
-				flex: 1;
-		text-align: right;
-	}
-
-	.toggle-header-search {
-		position: static;
-		display: block;
-		padding: 12px 15px;
-		line-height: 1;
-		margin-left: 20px;
-	} */
 
 }
 

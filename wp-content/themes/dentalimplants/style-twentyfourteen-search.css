@@ -1,13 +1,14 @@
 
-/* # Twenty Fourteen Style Search
+/* # Used by TwentyFourteen-Style Search functionality
  * ref: https://wpbeaches.com/adding-fly-search-field-box-genesis-based-twentyfourteen/
+ * 
 ---------------------------------------------------------------------------------------------------- */
 .menu-primary  .menu-item {
 	float: left;
 }
 
 .fa-search {
-	color: #fff;
+	color: rgb(255, 255, 255);
 }
 
 /* Header search */
@@ -18,17 +19,15 @@
 .search-toggle {
 	float: right;
 	padding: 30px 24px;
-	background-color: transparent;
 	color: #fff;
 	text-align: center;
 	cursor: pointer;
 	line-height: 1;
-	/* outline: 2px solid cyan; */
 }
 
 .search-toggle:hover,
 .search-toggle.active {
-	background: #000;
+	background: #4d4d4d;
 }
 
 @media screen and (max-width: 600px) {
@@ -45,15 +44,13 @@
 
 .search-box-wrapper {
 	z-index: 999;
-	/* width: 100%; */
-	width: 33.334%;
-	/* float: right; */
+	width: 100%;
 	display: none;
 }
 
 .search-box {
 	padding: 1em;
-	background: #000;
+	background: #4d4d4d;
 }
 
 .search-box input[type="search"]{
@@ -99,6 +96,4 @@
 	z-index: 100000;
 }
 
-/* # END OF Twenty Fourteen Style Search
- * ref: https://wpbeaches.com/adding-fly-search-field-box-genesis-based-twentyfourteen/
----------------------------------------------------------------------------------------------------- */
+/* # END OF Twenty Fourteen Style Search */

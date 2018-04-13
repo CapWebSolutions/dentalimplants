@@ -7,3 +7,9 @@ The height of the box is set to automatically adjust based on the height of the 
 data-mh="treatment-group"
 
 … and must be within the outer most div. There is nothing magic about the string "treatment-group", just that all boxes to be matched in size must have the same named datga attribute applied. 
+
+## Video Background Option on Front Page 1
+
+Ref: https://sridharkatakam.com/video-background-infinity-pro/
+
+Activate Video Background plugin

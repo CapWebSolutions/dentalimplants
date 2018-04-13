@@ -52,6 +52,13 @@ function dentalimplants_hide_editor_and_tools() {
 	remove_submenu_page( 'plugins.php','plugin-editor.php' );
 }
 
+//* Customize search form input box text
+add_filter( 'genesis_search_text', 'sp_search_text' );
+function sp_search_text( $text ) {
+	return esc_attr( 'Search ...' );
+}
+
+
 /*
  * Prevent the Jetpack publicize connections from being auto-selected,
  * so you need to manually select them if you’d like to publicize something.

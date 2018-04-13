@@ -19,27 +19,25 @@ function genesis_execute_php_widgets( $html ) {
 add_filter( 'widget_text','genesis_execute_php_widgets' );
 
 //Add in new Search Widget areas
-function themeprefix_extra_widgets() {	
+function dentalimplants_extra_widgets() {	
 	genesis_register_sidebar( array(
 	'id'            => 'search',
-	'name'          => __( 'Search', 'genesischild' ),
-	'description'   => __( 'This is the Search toggle area', 'genesischild' ),
+	'name'          => __( 'Search', 'dentalimplants-infini-pro' ),
+	'description'   => __( 'This is the Search toggle area', 'dentalimplants-infini-pro' ),
 	'before_widget' => '<div class="search">',
 	'after_widget'  => '</div>',
 	) );
 }
-add_action( 'widgets_init', 'themeprefix_extra_widgets' );
+add_action( 'widgets_init', 'dentalimplants_extra_widgets' );
 
 
 //Position the Search Area
-function themeprefix_search_widget() {
-	genesis_widget_area ( 'search', array(
+function dentalimplants_search_widget() {
+	genesis_widget_area ( 'search', array( 
 	'before' => '<div id="search-form-container">',
 	'after'  => '</div>',));
 }
-// add_action( 'genesis_site_description','themeprefix_search_widget' );
-// add_action( 'genesis_after_header','themeprefix_search_widget' );
-add_action( 'genesis_header','themeprefix_search_widget', 15 );
+add_action( 'genesis_after_header','dentalimplants_search_widget' );
 
 function custom_nav_item( $menu, stdClass $args ){
     // make sure we are in the primary menu
@@ -47,7 +45,7 @@ function custom_nav_item( $menu, stdClass $args ){
     
         return $menu;   
 
-    $menu  .= '</ul><ul class="search-form-container"><div class="search-toggle"><i class="ion-ios-search-strong"></i>
+    $menu  .= '</ul><ul class="search-form-container"><div class="search-toggle"><i class="fa fa-search"></i>
 				<a href="#search-container" class="screen-reader-text"></a>
 				</div>'; 
         return $menu; 

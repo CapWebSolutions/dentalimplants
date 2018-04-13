@@ -45,6 +45,9 @@ Loaded on the front page only */
 	.front-page .nav-primary .genesis-nav-menu a {
 		color: #fff;
 	}
+	.fa-search {
+		color: #fff;
+	}
 }
 
 .front-page .offscreen-content button,
