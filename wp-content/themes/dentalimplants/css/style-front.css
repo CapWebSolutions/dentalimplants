@@ -29,7 +29,7 @@ Loaded on the front page only */
 .front-page .white .site-header,
 .header-image.front-page .white .site-header {
     background-color: #fff;
-    border-bottom: 1px solid #eee;
+    /* border-bottom: 1px solid #eee; */
 }
 /* --- End of added code */
 
