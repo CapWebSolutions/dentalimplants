@@ -25,12 +25,14 @@ $plugin_url = plugin_dir_url( __FILE__ );
 if ( is_ssl() ) {
 	$plugin_url = str_replace( 'http://', 'https://', $plugin_url );
 }
-define( 'CORE_FUNCTION_URL', $plugin_url );
+define( 'CORE_FUNCTION_URL', $plugin_url );  // URL ends with a 'slash'
 define( 'CORE_FUNCTION_DIR', plugin_dir_path( __FILE__ ) );
+
+include_once( CORE_FUNCTION_DIR . '/lib/functions/loginout.php' );  // Login screen customizations
 
 // General. This should always be used. 
 include_once( CORE_FUNCTION_DIR . '/lib/functions/general.php' );
-include_once( CORE_FUNCTION_DIR . '/lib/functions/loginout.php' );  // Login screen customizations
+
 // Shortcode Updater. 
 include_once( CORE_FUNCTION_DIR . '/lib/functions/update-shortcodes.php' );
 

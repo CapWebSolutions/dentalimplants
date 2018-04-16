@@ -141,15 +141,7 @@ function dentalimplants_enqueue_needed_scripts() {
 	wp_enqueue_style( 'core-functionality', CORE_FUNCTION_URL . 'assets/css/core-functionality.css' );
 }
 
-//
-// Add custom logo to login page
-// Requires a transparent logo file in the active theme's images folder named 'login_logo.png'
-add_action( 'login_head', 'custom_loginlogo' );
-function custom_loginlogo() {
-	echo '<style type="text/css">
-	h1 a {background-image: url(' . get_bloginfo( 'stylesheet_directory' ) . '/images/login_logo.png) !important; }
-	</style>';
-}
+
 
 // Custom avatar_size
 add_filter( 'avatar_defaults', 'add_custom_gravatar' );
@@ -218,5 +210,5 @@ function dentalimplants_login_redirect( $redirect_to, $request, $user  ) {
         return $redirect_to;
     }
 }
-add_filter( 'login_redirect', 'dentalimplants_login_redirect', 10, 3 );
+// add_filter( 'login_redirect', 'dentalimplants_login_redirect', 10, 3 );
 
