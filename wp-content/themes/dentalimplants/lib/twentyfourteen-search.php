@@ -45,7 +45,7 @@ function custom_nav_item( $menu, stdClass $args ){
     
         return $menu;   
 
-    $menu  .= '</ul><ul class="search-form-container"><div class="search-toggle"><i class="fa fa-search"></i>
+		$menu  .= '</ul><ul class="search-form-container"><div class="search-toggle"><i class="dashicons dashicons-search"></i>
 				<a href="#search-container" class="screen-reader-text"></a>
 				</div>'; 
         return $menu; 

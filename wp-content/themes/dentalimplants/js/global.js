@@ -40,23 +40,24 @@
 
 	});
 
-	// Add white class to site container after search icon after 108px.
+	// Add white class to site container after search icon after 108px on front page only. .
+	// if ( $body.hasClass( 'front-page' ) ) {
+		$(document).on( 'scroll', function() {
+		// Function to toggle the offscreen content.
+			if ( $(document).scrollTop() > 108 ) {
 
-	$(document).on( 'scroll', function() {
+				$( '.site-container' ).addClass( 'white' );
+				$( '.fa-search' ).addClass( 'white' );
+				$( '.search-toggle' ).addClass( 'white' );
 
-		if ( $(document).scrollTop() > 108 ) {
+			} else {
+				$( '.site-container' ).removeClass( 'white' );
+				$( '.fa-search' ).removeClass( 'white' );
+				$( '.search-toggle' ).removeClass( 'white' );
+			}
 
-			$( '.site-container' ).addClass( 'white' );
-			$( '.fa-search' ).addClass( 'white' );
-			$( '.search-toggle' ).addClass( 'white' );
-
-		} else {
-			$( '.site-container' ).removeClass( 'white' );
-			$( '.fa-search' ).removeClass( 'white' );
-			$( '.search-toggle' ).removeClass( 'white' );
-		}
-
-	});
+		});
+	// }
 
 	// Push the .site-inner down dependant on the header height.
 	if ( ! $body.hasClass( 'front-page' ) ) {

@@ -870,32 +870,39 @@ th:first-child {
 
 .nav-primary {
 	text-align: center;
-} */
-.fa-search {
-	color: #fff;
-}
+} 
 
 /* Header search */
 .search-form-container {
 	position: relative;
 }
 
+
+
 .search-toggle {
 	float: right;
 	padding: 20px 24px 30px;
-	color: #000;
+	color: #fff;
 	text-align: center;
 	cursor: pointer;
 	line-height: 1;
 }
-
-.search-toggle:hover,
-.search-toggle.active {
-	background: #000;
-}
-.search-toggle:hover .white,
-.search-toggle.active .white {
+/* .search-toggle > i:not(.front-page) {
+    color: cyan;
+} */
+.search-toggle > i { 
 	color: #fff;
+}
+
+.search-toggle.white > i {
+    color: #000;
+}
+.search-toggle:hover,
+.search-toggle:active,
+.search-toggle.white:hover,
+.search-toggle.white:hover > i {
+	color: #fff;
+	background-color: #000;
 }
 
 @media screen and (max-width: 600px) {
