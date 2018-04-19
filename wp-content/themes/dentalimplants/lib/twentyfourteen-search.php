@@ -44,8 +44,8 @@ function custom_nav_item( $menu, stdClass $args ){
     if ( 'primary' != $args->theme_location )
     
         return $menu;   
-
-		$menu  .= '</ul><ul class="search-form-container"><div class="search-toggle"><i class="dashicons dashicons-search"></i>
+		// $menu  .= '</ul><ul class="search-form-container"><div class="search-toggle">HI<i class="dashicons dashicons-search"></i>
+		$menu  .= '</ul><ul class="search-form-container"><div class="search-toggle"><i class="fa fa-search"></i>
 				<a href="#search-container" class="screen-reader-text"></a>
 				</div>'; 
         return $menu; 

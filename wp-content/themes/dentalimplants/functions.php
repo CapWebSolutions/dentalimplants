@@ -68,7 +68,7 @@ function dentalimplants_enqueue_scripts_styles() {
 
 	wp_enqueue_style( 'dentalimplants-fonts', '//fonts.googleapis.com/css?family=Cormorant+Garamond:400,400i,700|Raleway:700', array(), CHILD_THEME_VERSION );
 	wp_enqueue_style( 'dentalimplants-ionicons', '//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css', array(), CHILD_THEME_VERSION );
-    // wp_enqueue_Style( 'dentalimplants-fontawesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', array(), CHILD_THEME_VERSION  ); /* Used by twentyfourteen-style search bar */
+    wp_enqueue_Style( 'dentalimplants-fontawesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', array(), CHILD_THEME_VERSION  ); /* Used by twentyfourteen-style search bar */
 	wp_enqueue_script( 'dentalimplants-match-height', get_stylesheet_directory_uri() . '/js/match-height.js', array( 'jquery' ), '0.5.2', true );
 	wp_enqueue_script( 'dentalimplants-global', get_stylesheet_directory_uri() . '/js/global.js', array( 'jquery', 'dentalimplants-match-height' ), '1.0.0', true );
 
