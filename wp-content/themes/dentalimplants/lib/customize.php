@@ -25,7 +25,7 @@ function dentalimplants_customizer_register() {
 	$images = apply_filters( 'dentalimplants_images', array( '1', '3', '5', '7' ) );
 
 	$wp_customize->add_section( 'dentalimplants-settings', array(
-		'description' => __( 'Use the included default images or personalize your site by uploading your own images.<br /><br />The default images are <strong>1600 pixels wide and 1000 pixels tall</strong>.', 'dentalimplants-infini-pro' ),
+		'description' => __( 'Background images should be sized <strong>1600 pixels wide and 1000 pixels tall</strong>.', 'dentalimplants-infini-pro' ),
 		'title'       => __( 'Front Page Background Images', 'dentalimplants-infini-pro' ),
 		'priority'    => 35,
 	) );
@@ -46,6 +46,20 @@ function dentalimplants_customizer_register() {
 		) ) );
 
 	}
+
+	// Get image for internal menu background.
+	$wp_customize->add_setting( $image .'-dentalimplants-image', array(
+		'default'           => sprintf( '%s/images/bg-nav.jpg', get_stylesheet_directory_uri() ),
+		'sanitize_callback' => 'esc_url_raw',
+		'type'              => 'option',
+	) );
+
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'nav-dentalimplants-image', array(
+		'label'    => sprintf( __( 'Interior Page Navigation Background Image:', 'dentalimplants-infini-pro' ), 'nav' ),
+		'section'  => 'dentalimplants-settings',
+		'settings' => 'nav-dentalimplants-image',
+		'priority' => 9,
+	) ) );
 
 	$wp_customize->add_setting(
 		'dentalimplants_accent_color',

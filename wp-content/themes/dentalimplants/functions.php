@@ -32,17 +32,9 @@ include_once( CHILD_DIR . '/lib/output.php' );
 // Add image upload and color select to theme customizer.
 require_once( CHILD_DIR . '/lib/customize.php' );
 
-// Add the required WooCommerce functions.
-// include_once( CHILD_DIR . '/lib/woocommerce/woocommerce-setup.php' );
-
-// Add the required WooCommerce custom CSS.
-// include_once( CHILD_DIR . '/lib/woocommerce/woocommerce-output.php' );
-
-// Include notice to install Genesis Connect for WooCommerce.
-// include_once( CHILD_DIR . '/lib/woocommerce/woocommerce-notice.php' );
-
 include_once( CHILD_DIR . '/lib/twentyfourteen-search.php' );
 include_once( CHILD_DIR . '/lib/sk-hello-bar.php' ); /* Phone number stuck to top of page */
+include_once( CHILD_DIR . '/lib/cws-under-nav-image-bar.php' ); /* Full width image under interior navs */
 
 
 // Set Localization (do not remove).
@@ -59,15 +51,12 @@ define( 'CHILD_THEME_VERSION', wp_get_theme()->get( 'Version' ) );
 define( 'CHILD_DEVELOPER', 'Cap Web Solutions' );
 define( 'CHILD_DEVELOPER_URL', 'https://capwebsolutions.com/'  );
 
-
-
-
 // Enqueue scripts and styles.
 add_action( 'wp_enqueue_scripts', 'dentalimplants_enqueue_scripts_styles' );
 function dentalimplants_enqueue_scripts_styles() {
 
 	wp_enqueue_style( 'dentalimplants-fonts', '//fonts.googleapis.com/css?family=Cormorant+Garamond:400,400i,700|Raleway:700', array(), CHILD_THEME_VERSION );
-	wp_enqueue_style( 'dentalimplants-ionicons', '//code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css', array(), CHILD_THEME_VERSION );
+	wp_enqueue_style( 'dentalimplants-ionicons', 'http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css', array(), CHILD_THEME_VERSION );
     wp_enqueue_Style( 'dentalimplants-fontawesome', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', array(), CHILD_THEME_VERSION  ); /* Used by twentyfourteen-style search bar */
 	wp_enqueue_script( 'dentalimplants-match-height', get_stylesheet_directory_uri() . '/js/match-height.js', array( 'jquery' ), '0.5.2', true );
 	wp_enqueue_script( 'dentalimplants-global', get_stylesheet_directory_uri() . '/js/global.js', array( 'jquery', 'dentalimplants-match-height' ), '1.0.0', true );
@@ -297,21 +286,6 @@ genesis_register_sidebar( array(
 	'description' => __( 'This is the after entry style 2 section.', 'dentalimplants-infini-pro' ),
 ) );
 
-
-/** Register Utility Bar Widget Areas. */
-// genesis_register_sidebar( array(
-// 	'id' => 'utility-bar-left',
-// 	'name' => __( 'Utility Bar Left', 'dentalimplants-infini-pro' ),
-// 	'description' => __( 'This is the left utility bar above the header.', 'dentalimplants-infini-pro' ),
-// ) );
-
-// genesis_register_sidebar( array(
-// 	'id' => 'utility-bar-right',
-// 	'name' => __( 'Utility Bar Right', 'dentalimplants-infini-pro' ),
-// 	'description' => __( 'This is the right utility bar above the header.', 'dentalimplants-infini-pro' ),
-// ) );
-
-// add_action( 'genesis_before_header', 'utility_bar' );
 /**
 * Add utility bar above header.
 *
@@ -337,14 +311,6 @@ function utility_bar() {
  
 }
 
-// if ( is_page('about') ) {
-// 	remove_action('genesis_after_entry', 'display_after_entry_2_widgets');
-// 	add_action('genesis_after_entry', 'display_after_entry_1_widgets');
-// } else {
-// 	remove_action('genesis_after_entry', 'display_after_entry_1_widgets');
-// 	add_action('genesis_after_entry', 'display_after_entry_2_widgets');
-// }
-
 function display_after_entry_1_widgets(){
 	echo '<div class="after-entry-1"><div class="wrap">';
 	
@@ -366,7 +332,7 @@ function display_after_entry_2_widgets(){
 	echo '</div></div>';
 }
 
-/* Code to Display Featured Image on top of the post on single team member pages */
+/* Display Featured Image on top of the post on single team member pages */
 add_action( 'genesis_before_entry_content', 'display_team_member_featured_image_on_page', 1 );
 function display_team_member_featured_image_on_page() {
 	if ( ! is_singular( 'post' ) && is_page_template('page_team') )  return;
@@ -383,3 +349,11 @@ function display_team_member_featured_image_on_page() {
 	}
 }
 
+//* Add custom body class to the head
+// add_filter( 'genesis_attr_site-header', 'cws_add_css_header_class' );
+function cws_add_css_header_class( $attributes ) {
+
+		$attributes['class'] .= NAV_BG_IMAGE_CSS;
+		return $attributes;
+
+}

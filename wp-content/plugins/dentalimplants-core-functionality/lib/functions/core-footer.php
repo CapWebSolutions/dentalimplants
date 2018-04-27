@@ -30,13 +30,13 @@ function capweb_site_name() {
 add_filter( 'genesis_footer_creds_text', 'cap_web_footer_creds_filter' );
 function cap_web_footer_creds_filter( $creds ) {
 	$rel = is_front_page() ? '' : 'rel="nofollow"';
-	$cred1_url = '/privacy-policy/';
-	$cred1_title = 'Privacy Policy';
-	$cred2_url = '/disclaimer';
-	$cred2_title = 'Disclaimer';
+	$cred1_url = '/disclaimer/';
+	$cred1_title = 'Disclaimer';
+	$cred2_url = '';
+	$cred2_title = '';
 	
 	$creds = '<div class="footer-alignleft">';
-	$creds .= '<a href="' . $cred1_url . '">' . $cred1_title . '</a> &middot; <a href="' . $cred2_url . '">' . $cred2_title . '</a><br/>';
+	$creds .= '<a href="' . $cred1_url . '">' . $cred1_title . '</a><br/>';
 	$creds .= 'Copyright [footer_copyright] [sitename], 467 Pennsylvania Avenue, Suite 201, Fort Washington, PA 19034';
 	$creds .= '</div><div class="footer-alignright">';
 	$creds .= "Website by <a {$rel} href=\"https://capwebsolutions.com/\" target=\"_blank\" >Cap Web Solutions</a><br>";

@@ -37,12 +37,17 @@ function dentalimplants_css() {
 
 		$background = $value['image'] ? sprintf( 'background-image: url(%s);', $value['image'] ) : '';
 
+		// Grab image from 1st section to use as following pages header
+		if ( 1 == $section ) {
+			define('NAV_BG_IMAGE_CSS', sprintf( ' site-header-nav-bg { %s } ', $background ));
+		}
+
 		if ( is_front_page() ) {
 			$css .= ( ! empty( $section ) && ! empty( $background ) ) ? sprintf( '.front-page-%s { %s }', $section, $background ) : '';
 		}
 
 	}
-
+	
 	$css .= ( dentalimplants_customizer_get_default_accent_color() !== $color_accent ) ? sprintf( '
 
 		a,

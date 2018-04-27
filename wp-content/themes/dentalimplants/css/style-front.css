@@ -76,7 +76,11 @@ Loaded on the front page only */
 .front-page .offscreen-content-icon button:focus,
 .front-page .white .genesis-nav-menu a:hover,
 .front-page .white .genesis-nav-menu a:focus {
-	color: #d43c67;
+	color: #990000;
+	text-decoration: underline;
+}
+.front-page a:visited {
+	color: #fff;
 }
 
 .front-page.full-width-content .content {
