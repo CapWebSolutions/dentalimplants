@@ -34,7 +34,7 @@ function be_admin_bar_links( $wp_admin_bar ) {
 		if( defined( 'BE_PUSH_TO' ) && 'staging' == BE_PUSH_TO )
 			$install .= '.staging';
 
-		$links['Dev'] = str_replace( home_url(), 'https://' . $prefix . $install . '.wpengine.com', $current );
+		$links['Stage'] = str_replace( home_url(), 'https://' . $prefix . $install . '.wpengine.com', $current );
 	}
 
 	if ( !defined( 'BE_LOCAL_LIVE' ) ) {
