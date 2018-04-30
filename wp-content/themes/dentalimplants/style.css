@@ -205,9 +205,9 @@ a:focus {
 	text-decoration: underline;
 }
 
-a:visited {
+/* a:visited {
 	color: #993300;
-}
+} */
 
 p {
 	margin: 0 0 30px;
