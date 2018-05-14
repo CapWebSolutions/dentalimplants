@@ -85,6 +85,8 @@ Thumbs.db
 # ignore random stuff
 .DS_Store
 
+*.mp4
+
 # -------------------------
 # BEGIN Whitelisted Files
 # -------------------------
