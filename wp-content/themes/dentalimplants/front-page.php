@@ -123,7 +123,6 @@ function dentalimplants_title( $title ) {
 	}
 
 	return $title;
-
 }
 
 // Modify featured page entry classes.
@@ -134,6 +133,38 @@ function dentalimplants_widget_entry_open( $attributes ) {
 	}
 
 	return $attributes;
+
+}
+
+add_action( 'genesis_after_header', 'dentalimplants_section1_video' ); 
+function dentalimplants_section1_video() {
+	
+	?>
+	
+	<div class="header-video">
+		<div class="custom-header-media">
+			
+			<?php 
+			
+			$video_file = genesis_get_option( 'dentalimplants_section1_video', 'dentalimplants-settings' );
+			$video_embed = genesis_get_option( 'dentalimplants_section1_video_embed', 'dentalimplants-settings' );
+			
+	// var_dump($video_file);
+	// var_dump($video_embed);
+
+	if ( $video_file ) {	
+				// echo do_shortcode('[video height="720" width="1280" mp4="'. $video_file .'" autoplay="on" loop="on" ]');
+			}
+
+			elseif ( $video_embed ) {	
+				// echo '<div class="wp-video"><iframe width="1280" height="720" src="https://www.youtube.com/embed/'. $video_embed .'?autoplay=1&loop=1&rel=0&playlist='. $video_embed .'&showinfo=0" frameborder="0" allowfullscreen></iframe></div>';
+			} 
+
+			?>
+			
+		</div>
+	</div>
+	<?php
 
 }
 
