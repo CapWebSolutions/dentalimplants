@@ -64,7 +64,7 @@ class Dental_Implants_Settings extends Genesis_Admin_Boxes {
 		add_action( 'genesis_settings_sanitizer_init', array( $this, 'sanitization_filters' ) );
 			
 	// Media uploader
-		add_action('admin_enqueue_scripts', array($this, 'upload_scripts'));
+		// add_action('admin_enqueue_scripts', array($this, 'upload_scripts'));
 			
 	}
 
