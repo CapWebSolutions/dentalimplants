@@ -1238,10 +1238,10 @@ img.alignright,
     background-color: #fff;
     padding: 0;
 }
-.image-bar img.centered, 
-.image-bar .aligncenter {
+.fixed-image-header img {
     display: block;
-    margin: 0 auto;
+	margin: 0 auto;
+	width: 100%;
 }
 
 .footer-widget-area .footer-phone-block {
