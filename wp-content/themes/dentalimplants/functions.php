@@ -152,7 +152,7 @@ function dentalimplants_skip_links_output( $links ) {
 }
 
 // Force Content Sidebar layout on internal pages.
-if ( is_page && !is_front_page() ) {
+if ( is_page() && !is_front_page() ) {
 	add_filter( 'genesis_site_layout', '__genesis_return_content_sidebar' );
 }
 
@@ -357,4 +357,47 @@ function cws_add_css_header_class( $attributes ) {
 		$attributes['class'] .= NAV_BG_IMAGE_CSS;
 		return $attributes;
 
+}
+
+// All of the pages pulled in as HTML pages have generic title. 
+// Want to hide these from front end. 
+add_action( 'genesis_before_entry', 'remove_title_from_some_pages' );
+function remove_title_from_some_pages(){
+	$my_id_list = array( 
+		4104,	// /health-issues-and-dentistry/conditions
+		5047, 	// /misc page
+		5332, 	// /patients/gallery 
+	);  
+	foreach ($tree_top_id as $value) {
+		$my_id = $value; 
+	}
+	if ( is_tree( $my_id ) ) {
+		// remove title
+		//ref: https://sridharkatakam.com/remove-titles-pages-genesis/
+		remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_open', 5 );
+		remove_action( 'genesis_entry_header', 'genesis_do_post_title' );
+		remove_action( 'genesis_entry_header', 'genesis_entry_header_markup_close', 15 );
+	}
+}
+
+// To check a Page by ID and all its child Pages incl. grand children
+// ref: https://sridharkatakam.com/useful-functions-checking-pages-sub-pages-wordpress/
+function is_tree( $pid ) { // $pid = The ID of the page we're looking for pages underneath
+
+	global $post; // load details about this page
+
+	$anc = get_post_ancestors( $post->ID );
+
+	foreach( $anc as $ancestor ) {
+		if ( is_page() && $ancestor == $pid ) {
+			return true;
+		}
+	}
+
+	if ( is_page() && ( is_page ( $pid ) ) ) {
+		return true; // we're at the page or at a sub page
+	}
+	else {
+	   return false; // we're elsewhere
+	}
 }
