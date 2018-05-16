@@ -16,7 +16,8 @@
 // Create a shortcode to display our custom Go to top link in footer
 add_shortcode( 'footer_custombacktotop', 'cap_web_footer_back_to_top' );
 function cap_web_footer_back_to_top( $atts ) {
-	return '<a href="#" class="top">Top of page</a>';
+	$top_of_page = '<a href="#" class="top">Top of page</a>';
+	return $top_of_page;
 }
 
 // Set up split custom footer
@@ -32,15 +33,12 @@ function cap_web_footer_creds_filter( $creds ) {
 	$rel = is_front_page() ? '' : 'rel="nofollow"';
 	$cred1_url = '/disclaimer/';
 	$cred1_title = 'Disclaimer';
-	$cred2_url = '';
-	$cred2_title = '';
 	
 	$creds = '<div class="footer-alignleft">';
 	$creds .= '<a href="' . $cred1_url . '">' . $cred1_title . '</a><br/>';
 	$creds .= 'Copyright [footer_copyright] [sitename], 467 Pennsylvania Avenue, Suite 201, Fort Washington, PA 19034';
 	$creds .= '</div><div class="footer-alignright">';
 	$creds .= "Website by <a {$rel} href=\"https://capwebsolutions.com/\" target=\"_blank\" >Cap Web Solutions</a><br>";
-	$creds .= '[footer_custombacktotop]';
-	$creds .= '</div>';
+	$creds .= '[footer_custombacktotop]</div>';
 	return $creds;
 }
