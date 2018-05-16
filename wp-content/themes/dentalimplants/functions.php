@@ -22,7 +22,7 @@ include_once( get_template_directory() . '/lib/init.php' );
 
 // Setup Theme.
 include_once( CHILD_DIR . '/lib/theme-defaults.php' );
-include_once( CHILD_DIR . '/lib/theme-settings.php' );
+// include_once( CHILD_DIR . '/lib/theme-settings.php' );
 // Helper functions.
 include_once( CHILD_DIR . '/lib/helper-functions.php' );
 
