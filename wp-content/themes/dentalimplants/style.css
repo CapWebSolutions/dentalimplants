@@ -885,8 +885,6 @@ th:first-child {
 	position: relative;
 }
 
-
-
 .search-toggle {
 	float: right;
 	padding: 20px 24px 30px;
@@ -895,9 +893,7 @@ th:first-child {
 	cursor: pointer;
 	line-height: 1;
 }
-/* .search-toggle > i:not(.front-page) {
-    color: cyan;
-} */
+
 .search-toggle > i { 
 	color: #fff;
 }
@@ -1136,6 +1132,9 @@ img.alignright,
 	text-align: center;
 }
 
+.widget_address {
+text-align: center;
+}
 /* Featured Content
 --------------------------------------------- */
 
