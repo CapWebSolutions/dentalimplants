@@ -1,41 +1,41 @@
 <?php
 /**
- * Infinity Pro.
+ * Dental Implants Infini-Pro.
  *
- * This file adds the default theme settings to the Infinity Pro Theme.
+ * This file adds the default theme settings to the Dental Implants Infini-Pro theme.
  *
- * @package Infinity
- * @author  StudioPress
+ * @package DentalImplants
+ * @author  Cap Web Solutions
  * @license GPL-2.0+
- * @link    http://my.studiopress.com/themes/infinity/
+ * @link    https://github.com/capwebsolutions.com/dentalimplants.git/
  */
 
-add_filter( 'genesis_theme_settings_defaults', 'infinity_theme_defaults' );
+add_filter( 'genesis_theme_settings_defaults', 'dentalimplants_theme_defaults' );
 /**
  * Updates theme settings on reset.
  *
  * @since 1.0.0
  */
-function infinity_theme_defaults( $defaults ) {
+function dentalimplants_theme_defaults( $defaults ) {
 
 	$defaults['blog_cat_num']              = 8;
 	$defaults['content_archive']           = 'full';
 	$defaults['content_archive_limit']     = 0;
 	$defaults['content_archive_thumbnail'] = 0;
 	$defaults['posts_nav']                 = 'numeric';
-	$defaults['site_layout']               = 'full-width-content';
+	$defaults['site_layout']               = 'content-sidebar';
 
 	return $defaults;
 
 }
 
-add_action( 'after_switch_theme', 'infinity_theme_setting_defaults' );
+add_action( 'after_switch_theme', 'dentalimplants_theme_setting_defaults' );
 /**
  * Updates theme settings on activation.
  *
  * @since 1.0.0
  */
-function infinity_theme_setting_defaults() {
+function dentalimplants_theme_setting_defaults() {
 
 	if ( function_exists( 'genesis_update_settings' ) ) {
 
@@ -45,7 +45,7 @@ function infinity_theme_setting_defaults() {
 			'content_archive_limit'     => 0,
 			'content_archive_thumbnail' => 0,
 			'posts_nav'                 => 'numeric',
-			'site_layout'               => 'full-width-content',
+			'site_layout'               => 'content-sidebar',
 		) );
 
 	} 
@@ -54,13 +54,13 @@ function infinity_theme_setting_defaults() {
 
 }
 
-add_filter( 'simple_social_default_styles', 'infinity_social_default_styles' );
+add_filter( 'simple_social_default_styles', 'dentalimplants_social_default_styles' );
 /**
  * Updates Simple Social Icon settings on activation.
  *
  * @since 1.0.0
  */
-function infinity_social_default_styles( $defaults ) {
+function dentalimplants_social_default_styles( $defaults ) {
 
 	$args = array(
 		'alignment'              => 'alignleft',

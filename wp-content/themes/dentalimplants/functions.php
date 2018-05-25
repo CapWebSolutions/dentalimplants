@@ -21,20 +21,20 @@ if ( ! defined( 'CHILD_DIR' ) )
 include_once( get_template_directory() . '/lib/init.php' );
 
 // Setup Theme.
-include_once( CHILD_DIR . '/lib/theme-defaults.php' );
-// include_once( CHILD_DIR . '/lib/theme-settings.php' );
+include_once( CHILD_DIR . '/lib/setup/theme-defaults.php' );
+
 // Helper functions.
-include_once( CHILD_DIR . '/lib/helper-functions.php' );
+include_once( CHILD_DIR . '/lib/functions/helper-functions.php' );
 
 // Include customizer CSS.
-include_once( CHILD_DIR . '/lib/output.php' );
+include_once( CHILD_DIR . '/lib/setup/output.php' );
 
 // Add image upload and color select to theme customizer.
-require_once( CHILD_DIR . '/lib/customize.php' );
+require_once( CHILD_DIR . '/lib/customizer/customize.php' );
 
-include_once( CHILD_DIR . '/lib/twentyfourteen-search.php' );
-include_once( CHILD_DIR . '/lib/sk-hello-bar.php' ); /* Phone number stuck to top of page */
-include_once( CHILD_DIR . '/lib/cws-under-nav-image-bar.php' ); /* Full width image under interior navs */
+include_once( CHILD_DIR . '/lib/functions/twentyfourteen-search.php' );
+include_once( CHILD_DIR . '/lib/functions/sk-hello-bar.php' ); /* Phone number stuck to top of page */
+include_once( CHILD_DIR . '/lib/functions/cws-under-nav-image-bar.php' ); /* Full width image under interior navs */
 
 
 // Set Localization (do not remove).

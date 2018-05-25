@@ -7,7 +7,7 @@
  * @package DentalImplants
  * @author  Cap Web Solutions
  * @license GPL-2.0+
- * @link    https://github.com/capwebsolutions.com/dentalimplatns.git/
+ * @link    https://github.com/capwebsolutions.com/dentalimplants.git/
  */
 
 add_action( 'genesis_meta', 'dentalimplants_front_page_genesis_meta' );
