@@ -32,7 +32,8 @@ include_once( CHILD_DIR . '/lib/setup/output.php' );
 // Add image upload and color select to theme customizer.
 require_once( CHILD_DIR . '/lib/customizer/customize.php' );
 
-include_once( CHILD_DIR . '/lib/functions/twentyfourteen-search.php' );
+// Special functionality 
+include_once( CHILD_DIR . '/lib/functions/twentyfourteen-search.php' ); /* old-school search functino */
 include_once( CHILD_DIR . '/lib/functions/sk-hello-bar.php' ); /* Phone number stuck to top of page */
 include_once( CHILD_DIR . '/lib/functions/cws-under-nav-image-bar.php' ); /* Full width image under interior navs */
 
