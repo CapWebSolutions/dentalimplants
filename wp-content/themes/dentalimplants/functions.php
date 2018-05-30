@@ -369,7 +369,7 @@ function remove_title_from_some_pages(){
 		5047, 	// /misc page
 		5332, 	// /patients/gallery 
 	);  
-	foreach ($tree_top_id as $value) {
+	foreach ($my_id_list as $value) {
 		$my_id = $value; 
 	}
 	if ( is_tree( $my_id ) ) {
