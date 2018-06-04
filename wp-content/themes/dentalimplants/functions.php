@@ -402,3 +402,12 @@ function is_tree( $pid ) { // $pid = The ID of the page we're looking for pages 
 	   return false; // we're elsewhere
 	}
 }
+
+
+
+//* Remove all post info for single posts.  
+add_filter( 'genesis_post_info', 'sp_post_info_filter' );
+function sp_post_info_filter($post_info) {
+	if ( is_single() ) $post_info = '';
+	return $post_info;
+}
