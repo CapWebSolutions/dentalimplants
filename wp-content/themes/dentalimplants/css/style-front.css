@@ -285,7 +285,7 @@ Loaded on the front page only */
 
 .front-page-3 {
 	background-color: #666;
-	color: #fff;
+	color: #000;
 	padding-bottom: 180px;
 	padding-top: 170px;
 	text-align: center;
@@ -300,7 +300,7 @@ Loaded on the front page only */
 .front-page-3 p,
 .front-page-3 .featured-content .entry-title a,
 .front-page-3 .widget-title {
-	color: #fff;
+	color: #000;
 }
 
 .front-page-3 a {
