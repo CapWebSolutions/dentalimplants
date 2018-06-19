@@ -288,6 +288,9 @@ genesis_register_sidebar( array(
 	'description' => __( 'This is the after entry style 2 section.', 'dentalimplants-infini-pro' ),
 ) );
 
+
+//remove_action( 'genesis_entry_footer', 'genesis_post_meta' );
+
 /**
 * Add utility bar above header.
 *
@@ -411,3 +414,12 @@ function sp_post_info_filter($post_info) {
 	if ( is_single() ) $post_info = '';
 	return $post_info;
 }
+
+
+//* Customize the post info function on testamonial CPT archive
+add_filter( 'genesis_post_info', 'capweb_post_info_filter' );
+function capweb_post_info_filter($post_info) {
+if ( is_post_type_archive('testimonial') ) {
+	$post_info = '[post_date]';
+	return $post_info;
+}}
